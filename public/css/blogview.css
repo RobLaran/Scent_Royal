@@ -1,0 +1,103 @@
+.blog-view {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.blog-view .featured-image {
+  justify-self: center;
+  width: calc(280px * 1.8);
+  height: calc(320px * 1.8);
+  display: block;
+  margin: 20px 0;
+}
+
+.blog-view .post-title {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.blog-view .post-meta {
+  color: #888;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.blog-view .post-paragraph {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.blog-view .first.paragraph {
+  margin-bottom: 20px;
+}
+
+.blog-view .reply-section {
+  margin-top: 80px;
+  display: grid;
+  grid-template-rows: 30px 280px;
+  grid-template-areas: 
+    "heading"
+    "form"
+  ;
+}
+
+.blog-view .reply-section h3 {
+  grid-area: heading;
+  font-size: 20px;
+}
+
+.blog-view form {
+  grid-area: form;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-areas: 
+    "comment name"
+    "comment email"
+    "comment url"
+    "button button"
+  ;
+
+  gap: 20px;
+}
+
+.blog-view .comment {
+  grid-area: comment;
+  resize: none;
+  padding: 10px;
+}
+
+.blog-view .name-input {
+  grid-area: name;
+}
+
+.blog-view .email-input {
+  grid-area: email;
+}
+
+.blog-view .url-input {
+  grid-area: url;
+}
+
+.blog-view input[type="text"],
+.blog-view input[type="email"],
+.blog-view input[type="url"] {
+  padding: 10px;
+}
+
+.blog-view label,
+.blog-view strong {
+  font-size: 15px;
+}
+
+.blog-view .submit-reply-container {
+  grid-area: button;
+  position: relative;
+}
+
+.blog-view .submit-reply-container .submit-reply {
+  position: absolute;
+
+  top: 30%;
+  right: 40px;
+}

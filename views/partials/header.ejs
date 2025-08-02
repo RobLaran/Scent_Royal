@@ -1,0 +1,73 @@
+<header>
+    <div id="header-content" class="wrapper">
+        <div class="logo-wrapper">
+            <a href="/">
+                <img src="/img/logo2.png" alt="Scent Royal Logo" id="site-logo" >
+            </a>
+        </div>
+        <div class="nav-wrapper">
+            <ul>
+                <li class="nav-tab <%= currentPath === '/' ? 'active' : '' %>">
+                    <a href="/">Home</a>
+                </li>
+                <li class="nav-tab <%= currentPath.includes('/shop') ? 'active' : '' %> dropdown-tab ">
+                    <a href="/shop">Shop</a>
+                    <div class="arrow">
+                        <label for="checkbox">
+                            <input type="checkbox" name="checkbox" id="checkbox">
+                            <span class="nav-arrow up fa fa-angle-up"></span>
+                            <span class="nav-arrow down fa fa-angle-down"></span>
+
+                            <div class="dropdown-content">
+                                <div class="brand-menu">
+                                    <h4>Brands</h4>
+                                    <ul class="options-menu">
+                                        <% brands.forEach(function(brand) { %>
+                                            <li><a href="/shop/brand/<%= brand %>"><%= brand %></a></li>
+                                        <% }); %>
+                                    </ul>
+                                </div>
+                                <div class="type-menu">
+                                    <h4>Types</h4>
+                                    <ul class="options-menu">
+                                        <% types.forEach(function(type) { %>
+                                            <li><a href="/shop/type/<%= type %>"><%= type %></a></li>
+                                        <% }); %>
+                                    </ul>
+                                </div>
+                                <div class="category-menu">
+                                    <h4>Categories</h4>
+                                    <ul class="options-menu">
+                                        <% categories.forEach(function(category) { %>
+                                            <li><a href="/shop/category/<%= category %>"><%= category %></a></li>
+                                        <% }); %>
+                                    </ul>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </li>
+                <li class="nav-tab <%= currentPath === '/about' ? 'active' : '' %>">
+                    <a href="/about">About</a>
+                    </li>
+                <li class="nav-tab <%= currentPath.includes('/blog') ? 'active' : '' %>">
+                    <a href="/blog">Blog</a>
+                </li>
+                <li class="nav-tab <%= currentPath === '/contact' ? 'active' : '' %>">
+                    <a href="/contact">Contact</a>
+                </li>
+                <li class="nav-tab <%= currentPath === '/wishlist' ? 'active' : '' %>">
+                    <a href="/wishlist" class="icon"><i class="fa-regular fa-heart"></i></a>
+                </li>
+                <li class="nav-tab <%= currentPath === '/cart' ? 'active' : '' %>">
+                    <a href="/cart" class="icon"><i class="fa-solid fa-cart-shopping"></i></a>
+                </li>
+                <li class="nav-tab">
+                    <a href="/login">
+                        <button class="button">Login</button>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>                       

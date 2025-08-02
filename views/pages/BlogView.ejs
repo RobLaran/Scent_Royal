@@ -1,0 +1,36 @@
+<div class="blog-view wrapper">
+    <img src="<%= blog.url %>" alt="Featured Image" class="featured-image" width="50px"/>
+
+    <h2 class="post-title"><%= blog.name%></h2>
+
+    <div class="post-meta">
+      <span class="date"><%= blog.date %></span> · 
+      <span class="author"><%= blog.author %></span> · 
+    </div>
+
+    <p class="first paragraph">
+      <%= blog.description %>
+    </p>
+
+    <p class="second paragraph">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis est dolor laudantium perspiciatis doloremque ipsa earum facere repellat quisquam atque eius aut, eligendi inventore possimus. Praesentium iusto provident architecto minima.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, a! Blanditiis velit ipsam cum sed labore officiis quos aspernatur inventore sit vero, illo vel cumque. Pariatur dolorem fuga animi provident?
+    </p>
+
+    <section class="reply-section">
+      <h3>Leave a Reply</h3>
+
+      <form>
+        <textarea placeholder="Your Comment Here..." required class="comment"></textarea>
+
+        <input type="text" placeholder="Name (required)" required class="name-input"/>
+        <input type="email" placeholder="Emails (required)" required class="email-input"/>
+        <input type="url" placeholder="Website" class="url-input"/>
+        
+        <div class="submit-reply-container">
+            <button class="submit-reply button" type="submit">POST COMMENT</button>
+        </div>
+      </form>
+
+    </section>
+</div>

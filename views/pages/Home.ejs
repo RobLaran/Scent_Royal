@@ -1,0 +1,138 @@
+<div class="home-content wrapper">
+
+
+  <section class="products_featured">
+    <div class="title-section">
+        <h2>Featured Products</h2>
+    </div>
+    <div class="grid-container">
+        <ul class="grid">
+        <% featureds.forEach(featured => { %>
+            <li class="item">
+                <div class="item-img">
+                    <div class="add-to-wishlist-wrapper">
+                            <i class="fa-regular fa-heart add-to-wishlist icon"></i>
+                    </div>
+                    <a href="/shop/product/<%= featured.id %>" class="dark-wrapper">
+                    </a>
+                    <img src="<%= featured.image %>" alt="<%= featured.brand %>" class="product">
+                </div>
+                <div class="item-title">
+                    <a href="/shop/product/<%= featured.id %> %>"><%= featured.title %></a>
+                </div>
+                <div class="item-price">₱<%= featured.currentPrice.toFixed(2) %></div>
+                <button class="atc-button button">Add To Cart</button>
+            </li>
+        <% }) %>
+        </ul>
+    </div>
+  </section>
+
+  <div class="banner">
+    <ul>
+          <li class="feature">
+            <div class="feature-icn">
+              <i class="fa-solid fa-truck-fast icn"></i>
+            </div>
+            <div class="feature-text">
+              <span>FAST SHIPPING</span>
+              <p>On all orders</p>
+            </div>
+        </li>
+
+          <li class="feature">
+            <div class="feature-icn">
+              <i class="fa-solid fa-medal icn"></i>
+            </div>
+            <div class="feature-text">
+              <span>REWARDS CLUB</span>
+              <p>Join or login now</p>
+            </div>
+          </li>
+
+          <li class="feature">
+            <div class="feature-icn">
+              <i class="fa-solid fa-shield-halved icn"></i>
+            </div>
+            <div class="feature-text">
+              <span>100% AUTHENTIC</span>
+              <p>From all our stores</p>
+            </div>
+          </li>
+    </ul>
+  </div>
+
+
+  <section class="specials">
+    <div class="offers">
+        <div class="title-section">
+            <h2>Special Offers </h2>
+        </div>
+        <div class="card">
+            <div class="card-img">
+                <div class="add-to-wishlist-wrapper">
+                        <i class="fa-regular fa-heart add-to-wishlist icon"></i>
+                </div>
+                <a href="/shop/product/<%= special.id %>" class="dark-wrapper">
+                </a>
+                <img src="<%= special.image %>" alt="<%= special.brand %>" class="product">
+            </div>
+            <div class="card-title">
+                <a href="/shop/product/<%= special.id %>"><%= special.title %></a>
+            </div>
+            <div class="card-price">₱<%= special.currentPrice.toFixed(2) %></div>
+            <button class="atc-button button">Add To Cart</button>
+        </div>
+    </div>
+
+    <div class="sellers">
+        <div class="title-section">
+            <h2>Best Sellers </h2>
+        </div>
+        <div class="grid-container">
+            <ul class="grid">
+            <% bests.forEach(best => { %>
+                <li class="item">
+                    <div class="item-img">
+                        <div class="add-to-wishlist-wrapper">
+                                <i class="fa-regular fa-heart add-to-wishlist icon"></i>
+                        </div>
+                        <a href="/shop/product/<%= best.id %>" class="dark-wrapper">
+                        </a>
+                        <img src="<%= best.image %>" alt="<%= best.brand %>" class="product">
+                    </div>
+                    <div class="item-title">
+                        <a href="/shop/product/<%= best.id %> %>"><%= best.title %></a>
+                    </div>
+                    <div class="item-price">₱<%= best.currentPrice.toFixed(2) %></div>
+                    <button class="atc-button button">Add To Cart</button>
+                </li>
+            <% }) %>
+            </ul>
+    </div>
+    </div>
+
+    <div class="sale">
+        <div class="title-section">
+            <h2>Big Sale </h2>
+        </div>
+        <div class="sale-content">
+            <div class="sale-img">
+                <img src="/img/sale.png" alt="">
+            </div>
+            <div class="sale-text">
+                <p>
+                    Big sale: 
+                    <span class="highlight">-30% OFF</span>
+                    for all orders over 
+                    <span class="amount">$500</span>
+                    <i class="fa fa-caret-down"></i>
+                </p>
+            </div>
+            <div class="sale-btn">
+                <button class="button">Discover More</button>
+            </div>
+        </div>
+  </section>
+</div> <!-- ✅ Final closing of .home-content.wrapper -->
+

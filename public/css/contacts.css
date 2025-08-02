@@ -1,0 +1,164 @@
+.contact-wrapper {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.contact-wrapper .contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  justify-content: space-between;
+}
+
+.contact-wrapper .contact-info, .contact-wrapper .map-section {
+  flex: 1 1 45%;
+  margin-bottom: 20px;
+}
+
+.contact-wrapper h2 {
+  color: orange;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+
+.contact-wrapper .info-item {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-wrapper .icon.heading {
+  width: 40px;
+}
+
+.contact-wrapper .icon.info {
+  width: 30px;
+}
+
+.contact-wrapper iframe {
+  width: 100%;
+  height: 300px;
+  border: 0;
+}
+
+.contact-wrapper .contact-form {
+  padding: 20px;
+  border-top: 1px solid #eee;
+}
+
+.contact-wrapper .contact-form .note {
+  font-size: 0.9em;
+  color: gray;
+}
+
+.contact-wrapper form {
+  margin-top: 20px;
+}
+
+.contact-wrapper .form-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.contact-wrapper input, .contact-wrapper form textarea {
+  width: 100%;
+  max-width: 32%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+}
+
+.contact-wrapper form textarea {
+  max-width: 100%;
+  height: 120px;
+}
+
+.contact-wrapper .send-button {
+  padding: 10px 20px;
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.contact-wrapper footer {
+  background: #f9f9f9;
+  padding: 30px 20px;
+  font-size: 14px;
+  color: #333;
+}
+
+.contact-wrapper .footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.contact-wrapper footer h4 {
+  margin-bottom: 10px;
+}
+
+.contact-wrapper .socials a {
+  margin-right: 10px;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.contact-wrapper .newsletter-signup {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.contact-wrapper .newsletter-signup input {
+  padding: 8px;
+  flex: 1;
+}
+
+.contact-wrapper .newsletter-signup button {
+  background: orange;
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.contact-wrapper .label {
+  display: inline-block;
+  padding: 3px 8px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+
+.contact-wrapper .sale {
+  background: orange;
+  color: white;
+}
+
+.contact-wrapper .new {
+  background: navy;
+  color: white;
+}
+
+.contact-wrapper .links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-wrapper .links li {
+  margin: 5px 0;
+}
+
+.contact-wrapper footer-bottom {
+  text-align: center;
+  padding-top: 15px;
+  border-top: 1px solid #ddd;
+}

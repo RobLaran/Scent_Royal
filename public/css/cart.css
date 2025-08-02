@@ -1,0 +1,109 @@
+.cart-container {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.cart-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.cart-container thead tr {
+  background: #f9f9f9;
+}
+.cart-container th,
+.cart-container td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+  vertical-align: middle;
+}
+.cart-container th {
+  font-weight: bold;
+}
+.cart-container .product-image {
+  width: 50px;
+  height: auto;
+  vertical-align: middle;
+}
+.cart-container .qty-input {
+  width: 50px;
+  text-align: center;
+}
+.cart-container .btn {
+  background-color: #ff9900;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.cart-container .btn:disabled {
+  background-color: #ffc77d;
+  cursor: not-allowed;
+}
+.cart-container .cart-totals-container {
+  width: 100%;
+  display: grid;
+}
+.cart-container .cart-totals-container .cart-totals {
+  width: 300px;
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  background: #f9f9f9;
+  justify-self: right;
+}
+.cart-container .coupon-section {
+  margin-top: 15px;
+  max-width: 600px;
+}
+.cart-container .coupon-input {
+  padding: 10px;
+  font-size: 14px;
+  width: 200px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  margin-right: 10px;
+}
+.cart-container .coupon-btn,
+.cart-container .update-btn {
+  background-color: #ff9900;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.cart-container .update-btn {
+  float: right;
+}
+.cart-container .clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.cart-container .cart-totals table {
+  width: 100%;
+  border: none;
+}
+.cart-container .cart-totals th,
+.cart-container .cart-totals td {
+  border: none;
+  padding: 5px 0;
+}
+.cart-container .cart-totals th {
+  text-align: left;
+}
+.cart-container .cart-totals td {
+  text-align: right;
+}
+.cart-container .remove-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  color: #888;
+  cursor: pointer;
+}
+.cart-container .remove-btn:hover {
+  color: #ff0000;
+}

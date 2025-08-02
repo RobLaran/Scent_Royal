@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('partials/head') %>
+    </head>
+    <body>
+        <%- include('partials/header', { brands: brands || [], types: types || [], categories: categories || [] }) %>
+        <%- include('partials/sub-header', { title: title }) %>
+        <main>
+            <%- body %>
+        </main>
+
+        
+        <%- include('partials/footerwidget') %>
+        <%- include('partials/footer') %>
+        <script src="/js/productvieww.js"></script>
+        <script src="/js/cart.js"></script>
+        <script src="/js/login.js"></script>
+    </body>
+</html>

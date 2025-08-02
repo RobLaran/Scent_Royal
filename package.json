@@ -1,0 +1,42 @@
+{
+  "name": "Perfume Ecommerce",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "compile": "pkg ./server.js --targets node18-win-x64 --output app.exe"
+  },
+  "keywords": [
+    "e-commerce"
+  ],
+  "author": "Rob",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "dotenv": "^17.2.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-ejs-layouts": "^2.5.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.14.2"
+  },
+  "bin": "server.js",
+  "pkg": {
+    "scripts": [
+      "routes/**/*.js",
+      "middleware/**/*.js",
+      "node_modules/ejs/**/*",
+      "node_modules/express-ejs-layouts/**/*"
+    ],
+    "assets": [
+      "views/**/*",
+      "public/**/*",
+      ".env",
+      "node_modules/ejs/**/*",
+      "node_modules/express-ejs-layouts/**/*"
+    ]
+  }
+
+
+}

@@ -1,0 +1,107 @@
+.product-view-container {
+  min-height: 100%;
+}
+
+.product-view-container .main-content {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  height: 70%;
+	display: grid;
+  column-gap: 20px;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 180px);
+	grid-template-areas: 
+		"img details details"
+		"img details details"
+		"img details details"
+	;
+}
+
+.product-view-container .product-image-section {
+	grid-area: img;
+	display: flex;
+}
+
+.product-view-container .main-img {
+  width: 400px;
+  height: 100%;
+  border: 1px solid #ddd;
+  align-self: center;
+  justify-self: center;
+}
+
+.product-view-container .product-details {
+	grid-area: details;
+  display: grid;
+}
+
+.product-view-container .product-details h2 {
+  border-bottom: 1px solid #000;
+}
+
+.product-view-container .price {
+  font-size: 24px;
+  color: #0077cc;
+  padding-top: 20px;
+}
+
+.product-view-container .product-details p.description.second {
+  border-bottom: 1px solid #000;
+}
+
+.product-view-container .product-details .tags {
+  padding-top: 20px;
+  display: grid;
+}
+
+
+.product-view-container .quantity-selector {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+.product-view-container .quantity-selector input[type="number"] {
+  width: 40px;
+  height: 35px;
+  text-align: center;
+  border: none;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.product-view-container .qty-btn {
+  width: 35px;
+  height: 35px;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #444;
+  transition: background-color 0.2s;
+}
+
+.product-view-container .qty-btn:hover {
+  background-color: #f0f0f0;
+}
+
+.product-view-container input[type=number]::-webkit-inner-spin-button,
+.product-view-container input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.product-view-container .cart-section {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.product-view-container .bt > .icn {
+  margin-right: 10px;
+}
+

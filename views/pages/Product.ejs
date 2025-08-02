@@ -1,0 +1,34 @@
+<div class="product-view-container wrapper">
+    <div class="main-content">
+      <div class="product-image-section">
+        <img src="<%= product.image %>" alt="Main Product" class="main-img">
+      </div>
+      <div class="product-details">
+        <h2><%= product.title %></h2>
+        <p class="price">₱<%= product.currentPrice.toFixed(2) %></p>
+        <p class="description first">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam quod, laudantium reiciendis, deleniti inventore rerum ex illum minus, sint itaque saepe at sunt voluptatum ab beatae. Eligendi velit natus ad.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus alias consequatur ipsam harum! Ducimus cumque, officia cum sint nihil culpa a sed quasi aspernatur, quibusdam et cupiditate, maxime doloremque similique!
+        </p>
+        <p class="description second">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima facilis quam eligendi placeat ducimus repellat officia enim minus, debitis ipsa reiciendis! Debitis itaque quibusdam et molestias quas labore officiis quos.
+        </p>
+        <div class="tags">
+          <p class="fields"><strong>Type:</strong> <a href="/shop/type/<%= product.type %>"><%= product.type %></a></p>
+          <p class="fields"><strong>Category:</strong> <a href="/shop/category/<%= product.category %>"><%= product.category %></a></p>
+          <p class="fields"><strong><%= product.availableText %></strong> </p>
+        </div>
+
+        <div class="cart-section">
+          <div class="quantity-selector">
+                <button class="qty-btn">-</button>
+                <input type="number" value="0" min="0">
+                <button class="qty-btn">+</button>
+            </div> 
+
+          <button class="add-to-cart button"><i class="fa-solid fa-cart-shopping icn"></i>Add to Cart</button>
+          <button class="wishlist button"><i class="fa-solid fa-heart icn"></i>Wishlist</button>
+        </div>
+        </div>
+      </div>
+</div>

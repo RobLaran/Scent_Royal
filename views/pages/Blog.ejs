@@ -1,0 +1,19 @@
+<div class="blog-container wrapper blog">
+    <% blogs.forEach(function(blog){ %>
+
+      <div class="blog-post">
+        <div class="post-image">
+          <img src="<%= blog.url %>" alt="Post" class="blog-image"/>
+          <div class="post-date">
+            <span><%= blog.date %></span>
+          </div>
+        </div>
+        <div class="post-content">
+          <h2><a href="/blog/<%= blog.id %>"><%= blog.name %></a></h2>
+          <p class="excerpt"><%= blog.description %></p>
+          <p class="comments">💬 0 COMMENT</p>
+        </div>
+      </div>
+
+    <% }); %>
+</div>

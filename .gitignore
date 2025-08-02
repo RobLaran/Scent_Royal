@@ -1,0 +1,7 @@
+mysql/
+.env
+node_modules/
+app.exe
+import_db.bat
+log.txt
+run.bat
