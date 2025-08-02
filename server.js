@@ -1,4 +1,5 @@
 require('ejs');
+
 const path = require('path');
 const dotenv = require('dotenv');
 
@@ -12,13 +13,11 @@ if (process.pkg) {
 const express = require('express');
 const app = express();
 const expressLayouts = require('express-ejs-layouts');
-const fetchFilters = require('./middleware/filters');
-const productRoutes = require('./routes/productRoutes');
-const blogRoutes = require('./routes/blogRoutes');
-
+const router = require ('./routes');
 
 // Set EJS as templating engine
 app.set('view engine', 'ejs');
+
 // app.set('views', path.join(__dirname, 'views'));
 const viewsPath = process.pkg
   ? path.join(process.cwd(), 'views')
@@ -37,43 +36,7 @@ app.use(express.static(publicPath));
 app.use(expressLayouts);
 app.set('layout', 'layout');
 
-// Routes
-
-// Apply globally
-app.use(fetchFilters);
-
-app.use((req, res, next) => {
-  res.locals.currentPath = req.path;
-  next();
-});
-
-app.use('/', productRoutes);
-
-app.use('/', blogRoutes);
-
-app.get('/about', (req, res) => {
-  res.render('pages/About', { title: 'About' });
-});
-
-app.get('/contact', (req, res) => {
-  res.render('pages/Contact', { title: 'Contact' });
-});
-
-app.get('/wishlist', (req, res) => {
-  res.render('pages/Wishlist', { title: 'Wishlist' });
-});
-
-app.get('/cart', (req, res) => {
-  res.render('pages/Cart', { title: 'Shopping Cart' });
-});
-
-app.get('/login', (req, res) => {
-  res.render('pages/Login', { title: 'Login' });
-});
-
-app.get('/register', (req, res) => {
-  res.render('pages/Register', { title: 'Register' });
-});
+app.use('/', router);
 
 
 // Start server

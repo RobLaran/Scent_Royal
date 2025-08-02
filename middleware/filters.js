@@ -1,26 +1,20 @@
-const db = require('../database_connection');
+const db = require('../config/database_connection'); // assuming db = pool.promise()
 
-function fetchFilters(req, res, next) {
-  const brandsQuery = 'SELECT DISTINCT brand FROM perfumes';
-  const typesQuery = 'SELECT DISTINCT type FROM perfumes';
-  const categoriesQuery = 'SELECT DISTINCT category FROM perfumes';
+const fetchFilters = async (req, res, next) => {
+  try {
+    const [brands] = await db.query('SELECT DISTINCT brand FROM perfumes');
+    const [categories] = await db.query('SELECT DISTINCT category FROM perfumes');
+    const [types] = await db.query('SELECT DISTINCT type FROM perfumes');
 
-  db.query(brandsQuery, (err, brands) => {
-    if (err) return next(err);
-    db.query(typesQuery, (err, types) => {
-      if (err) return next(err);
-      db.query(categoriesQuery, (err, categories) => {
-        if (err) return next(err);
+    res.locals.brands = brands.map((row) =>  row.brand );
+    res.locals.categories = categories.map((row) =>  row.category );
+    res.locals.types = types.map((row) =>  row.type );
 
-        // Store in res.locals (EJS has direct access)
-        res.locals.brands = brands.map(row => row.brand);
-        res.locals.categories = categories.map(row => row.category);
-        res.locals.types = types.map(row => row.type);
-
-        next();
-      });
-    });
-  });
-}
+    next();
+  } catch (err) {
+    console.error('Error fetching filter data:', err);
+    res.status(500).send('Server Error');
+  }
+};
 
 module.exports = fetchFilters;

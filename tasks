@@ -1,0 +1,35 @@
+Create model
+    - product
+        + id PK
+        + brand
+        + title
+        + type
+        + price
+        + priceWithCurrency
+        + available
+        + availableText
+        + sold
+        + lastUpdated
+        + itemLocation
+        + category
+        + currentPrice
+        + image
+        + altImage
+        + added_to_cart
+    - blog
+        + id
+        + url
+        + name
+        + brand
+        + author
+        + date
+        + description
+    - comment
+    - review
+    - user
+Create controller 
+    - product
+    - blog
+    - user
+Connect models, controllers, views and routes
+

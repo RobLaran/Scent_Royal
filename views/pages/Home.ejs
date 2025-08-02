@@ -21,7 +21,13 @@
                     <a href="/shop/product/<%= featured.id %> %>"><%= featured.title %></a>
                 </div>
                 <div class="item-price">₱<%= featured.currentPrice.toFixed(2) %></div>
-                <button class="atc-button button">Add To Cart</button>
+                <button class="atc-button button" onclick="addToCart(this)" data-product='<%- JSON.stringify(featured) %>'>
+                  <% if (featured.added_to_cart) { %>
+                    View Cart
+                  <% } else { %>
+                    Add To Cart
+                  <% } %>
+                </button>
             </li>
         <% }) %>
         </ul>
@@ -81,7 +87,7 @@
                 <a href="/shop/product/<%= special.id %>"><%= special.title %></a>
             </div>
             <div class="card-price">₱<%= special.currentPrice.toFixed(2) %></div>
-            <button class="atc-button button">Add To Cart</button>
+            <button class="atc-button button" onclick="addToCart(this)" data-product='<%- JSON.stringify(special) %>'>Add To Cart</button>
         </div>
     </div>
 
@@ -105,11 +111,11 @@
                         <a href="/shop/product/<%= best.id %> %>"><%= best.title %></a>
                     </div>
                     <div class="item-price">₱<%= best.currentPrice.toFixed(2) %></div>
-                    <button class="atc-button button">Add To Cart</button>
+                    <button class="atc-button button" onclick="addToCart(this)" data-product='<%- JSON.stringify(best) %>'>Add To Cart</button>
                 </li>
             <% }) %>
             </ul>
-    </div>
+        </div>
     </div>
 
     <div class="sale">

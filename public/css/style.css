@@ -25,6 +25,7 @@ body {
     background-color: var(--body-bg);
     min-height: 100%;
     display: grid;
+    grid-template-columns: 1fr;
     grid-template-rows: 100px max-content minmax(500px, 100%) max-content 70px;
     grid-template-areas: 
         "header"

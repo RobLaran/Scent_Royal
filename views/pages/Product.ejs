@@ -14,9 +14,10 @@
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima facilis quam eligendi placeat ducimus repellat officia enim minus, debitis ipsa reiciendis! Debitis itaque quibusdam et molestias quas labore officiis quos.
         </p>
         <div class="tags">
-          <p class="fields"><strong>Type:</strong> <a href="/shop/type/<%= product.type %>"><%= product.type %></a></p>
-          <p class="fields"><strong>Category:</strong> <a href="/shop/category/<%= product.category %>"><%= product.category %></a></p>
-          <p class="fields"><strong><%= product.availableText %></strong> </p>
+          <p class="fields"><strong>Type: </strong><a href="/shop/type/<%= product.type %>"><%= product.type %></a></p>
+          <p class="fields"><strong>Category: </strong><a href="/shop/category/<%= product.category %>"><%= product.category %></a></p>
+          <p class="fields"><strong>Location: </strong><a href="https://www.google.com/maps/place/<%= product.itemLocation %>"><%= product.itemLocation %></a></p>
+          <p class="fields"><strong><%= product.available %> available / <%= product.sold %> sold</strong> </p>
         </div>
 
         <div class="cart-section">
@@ -26,7 +27,7 @@
                 <button class="qty-btn">+</button>
             </div> 
 
-          <button class="add-to-cart button"><i class="fa-solid fa-cart-shopping icn"></i>Add to Cart</button>
+          <button class="add-to-cart button" onclick="addToCart(this)" data-product='<%- JSON.stringify(product) %>'><i class="fa-solid fa-cart-shopping icn"></i>Add to Cart</button>
           <button class="wishlist button"><i class="fa-solid fa-heart icn"></i>Wishlist</button>
         </div>
         </div>

@@ -15,7 +15,9 @@
                     <a href="/shop/product/<%= product.id %> %>"><%= product.title %></a>
                 </div>
                 <div class="item-price">₱<%= product.currentPrice.toFixed(2) %></div>
-                <button class="atc-button button">Add To Cart</button>
+                <button class="atc-button button" onclick="addToCart(this)" data-product='<%- JSON.stringify(product) %>'>
+                    Add To Cart
+                </button>
             </li>
         <% }) %>
     </ul>
