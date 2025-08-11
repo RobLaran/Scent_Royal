@@ -1,157 +1,148 @@
- /* body {
-      background: #E5E5E5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-       font-family: 'Lato', sans-serif;
-    } */
-
-    .login-container {
-        display: flex;
-        justify-content: center;
-        margin-top: 40px;
-        margin-bottom: 80px;
-    }
+.login-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 80px;
+}
  
-    .login-container #lr-form {
-  width: max-content;
-  height: auto;
-  background: white;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  border-top: 2px solid #D4AF37;
+.login-container #lr-form {
+	width: max-content;
+	height: auto;
+	background: white;
+	box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	border-top: 2px solid #D4AF37;
 }
 
 .login-container .lr-inner {
-  width: 416px;
-  height: 449.600px;
-  display: none;
-  transition: all 0.3s ease;
-  animation: fadeIn 0.4s ease forwards;
+	width: 416px;
+	height: 449.600px;
+	display: none;
+	transition: all 0.3s ease;
+	animation: fadeIn 0.4s ease forwards;
 }
 
 .login-container .lr-inner.active {
-  display: block;
+  	display: block;
 }
 
 .login-container .lr-inner-cont {
-  width: 352px;
-  height: 385.600px;
-  padding: 32px;
+	width: 352px;
+	height: 385.600px;
+	padding: 32px;
 }
 
 .login-container .title {
-  width: 352px;
-  height: 68px;
-  margin-bottom: 32px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+	width: 352px;
+	height: 68px;
+	margin-bottom: 32px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 }
 
 .login-container .title h2 {
-  margin: 0;
+  	margin: 0;
 }
 
 .login-container .title p {
-  margin: 8px 0 0 0;
+  	margin: 8px 0 0 0;
 }
 
 .login-container form {
-  width: 352px;
-  height: 229.600px;
+	width: 352px;
+	height: 229.600px;
 }
 
 .login-container .icon {
-  width: 18px;
-  height: 48.800px;
-  padding-left: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	width: 18px;
+	height: 48.800px;
+	padding-left: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .login-container .icon i {
-  color: gray;
+  	color: gray;
 }
 
 .login-container .input-field {
-  width: 352px;
-  height: 48.800px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid gray;
+	width: 352px;
+	height: 48.800px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid gray;
 }
 
 .login-container .input-field.em {
-  margin-top: 20px;
+  	margin-top: 20px;
 }
 
 .login-container .pass {
-  margin-top: 20px;
+  	margin-top: 20px;
 }
 
 .login-container .input-field input {
-  width: 300px;
-  height: 24px;
-  border: none;
+	width: 300px;
+	height: 24px;
+	border: none;
 }
 
 .login-container .input-field input:focus {
-  outline: none;
-  border: none;
+	outline: none;
+	border: none;
 }
 
 .login-container .bttn {
-  width: 352px;
-  height: 45px;
-  margin-top: 20px;
-  text-align: center;
-  padding: 0;
-  background-color: #D4AF37;
-  border: none;
-  border-radius: 2px;
+	width: 352px;
+	height: 45px;
+	margin-top: 20px;
+	text-align: center;
+	padding: 0;
+	background-color: #D4AF37;
+	border: none;
+	border-radius: 2px;
 }
 
 .login-container .bttn:hover {
-  background-color: #C0A12B;
+  	background-color: #C0A12B;
 }
 
 .login-container .create {
-  width: 352px;
-  height: 24px;
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
+	width: 352px;
+	height: 24px;
+	margin-top: 20px;
+	display: flex;
+	justify-content: center;
 }
 
 .login-container .create p {
-  margin: 0;
+  	margin: 0;
 }
 
 .login-container .create .create-btn {
-  color: #FF6F61;
-  background-color: transparent;
-  border: none;
-  text-decoration: none;
-  margin-left: 5px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: color 0.3s ease;
+	color: #FF6F61;
+	background-color: transparent;
+	border: none;
+	text-decoration: none;
+	margin-left: 5px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: color 0.3s ease;
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
 

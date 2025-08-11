@@ -5,7 +5,9 @@ const title = 'Shop';
 module.exports = {
     async showProducts(req, res) {
         try {
-            const products = await Product.getProducts();
+            const userId = req.session?.user?.id || null;
+            const products = await Product.getProducts(userId);
+
             res.render('pages/Shop', { products: products, title: title });
         } catch (err) {
             console.error('Error:', err);
@@ -15,7 +17,8 @@ module.exports = {
 
     async showByBrand(req, res) {
         try {
-            const products = await Product.getByBrand(req.params.brand);
+            const userId = req.session?.user?.id || null;
+            const products = await Product.getByBrand(userId, req.params.brand);
             res.render('pages/Shop', { products, title: req.params.brand });
         } catch (err) {
             console.error('Error:', err);
@@ -25,7 +28,8 @@ module.exports = {
 
     async showByType(req, res) {
         try {
-            const products = await Product.getByType(req.params.type);
+            const userId = req.session?.user?.id || null;
+            const products = await Product.getByType(userId, req.params.type);
             res.render('pages/Shop', { products, title: req.params.type });
         } catch (err) {
             console.error('Error:', err);
@@ -35,7 +39,8 @@ module.exports = {
 
     async showByCategory(req, res) {
         try {
-            const products = await Product.getByCategory(req.params.category);
+            const userId = req.session?.user?.id || null;
+            const products = await Product.getByCategory(userId, req.params.category);
             res.render('pages/Shop', { products, title: req.params.category });
         } catch (err) {
             console.error('Error:', err);
@@ -45,12 +50,24 @@ module.exports = {
 
     async showProduct(req, res) {
         try {
-            const product = await Product.getById(req.params.id);
-            if (!product) return res.status(404).send('Product not found');
-            res.render('pages/Product', { product, title: product.title || 'Product Detail' });
+            const userId = req.session?.user?.id || null;
+            const product = await Product.getById(userId, req.params.id);
+            if (!product) {
+                return res.status(404).render('pages/404', { 
+                    title: 'Product Not Found', 
+                    message: 'The product you are looking for does not exist.' 
+                });
+            }
+            res.render('pages/Product', { 
+                product, 
+                title: product.title || 'Product Detail' 
+            });
         } catch (err) {
             console.error('Error:', err);
-            res.status(500).send('Internal Server Error: Cannot Show Product');
+            res.status(500).render('pages/500', { 
+                title: 'Internal Server Error', 
+                message: 'Cannot Show Product' 
+            });
         }
     }
 };

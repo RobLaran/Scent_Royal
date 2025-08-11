@@ -2,23 +2,7 @@
     <div class="grid-container">
     <ul class="grid">
         <% products.forEach(product => { %>
-            <li class="item">
-                <div class="item-img">
-                    <div class="add-to-wishlist-wrapper">
-                            <i class="fa-regular fa-heart add-to-wishlist icon"></i>
-                    </div>
-                    <a href="/shop/product/<%= product.id %>" class="dark-wrapper">
-                    </a>
-                    <img src="<%= product.image %>" alt="<%= product.brand %>" class="product">
-                </div>
-                <div class="item-title">
-                    <a href="/shop/product/<%= product.id %> %>"><%= product.title %></a>
-                </div>
-                <div class="item-price">₱<%= product.currentPrice.toFixed(2) %></div>
-                <button class="atc-button button" onclick="addToCart(this)" data-product='<%- JSON.stringify(product) %>'>
-                    Add To Cart
-                </button>
-            </li>
+            <%- include('../partials/productCard', { product }) %>
         <% }) %>
     </ul>
 </div>

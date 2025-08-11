@@ -4,7 +4,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
+    "start": "node --watch server.js",
     "compile": "pkg ./server.js --targets node18-win-x64 --output app.exe"
   },
   "keywords": [
@@ -14,10 +14,13 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "bcrypt": "^6.0.0",
+    "body-parser": "^2.2.0",
     "dotenv": "^17.2.0",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
     "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.18.2",
     "mysql": "^2.18.1",
     "mysql2": "^3.14.2"
   },
@@ -37,6 +40,4 @@
       "node_modules/express-ejs-layouts/**/*"
     ]
   }
-
-
 }

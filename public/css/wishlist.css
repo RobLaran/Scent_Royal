@@ -3,6 +3,11 @@
   margin-bottom: 40px;
 }
 
+.wishlist-table h1 {
+  margin-top: 80px;
+  justify-self: center;
+}
+
 .wishlist-table table {
   width: 100%;
   border-collapse: collapse;
@@ -13,10 +18,16 @@
   background: #f7f7f7;
 }
 
-.wishlist-table td, .wishlist-table th {
+.wishlist-table th {
   padding: 12px;
-  text-align: left;
+  text-align: center;
   border-bottom: 1px solid #ddd;
+  vertical-align: middle;
+}
+
+.wishlist-table td {
+  padding: 12px;
+  border-bottom: 1px solid #838383;
   vertical-align: middle;
 }
 
@@ -29,29 +40,45 @@
 .wishlist-table td span {
   vertical-align: middle;
 }
-.wishlist-table td span:hover{
-   color: darkorange;
+
+.wishlist-table td span a {
+  text-decoration: none;
+  color: var(--tertiary-text);
 }
 
-.wishlist-table .remove{
+.wishlist-table td span a:hover{
+   color: var(--secondary-text);
+}
+
+.wishlist-table td button {
+  justify-self: center;
+}
+
+
+
+.wishlist-table .remove-icon {
+  margin: 0;
+  padding: 0;
+  width: 30px;
+  height: 30px;
   background: none;
   font-size: 20px;
   color: #333;
   cursor: pointer;
-}
-.wishlist-table .add, .wishlist-table .select {
-  background: orange;
-  color: white;
-  padding: 8px 12px;
   border: none;
-  cursor: pointer;
+  border-radius: 50%;
+  text-align: center;
 }
-.wishlist-table .select:hover{
-  background-color: rgb(69, 69, 165);
+
+.wishlist-table .remove-icon:hover {
+  outline: 2px solid #333;
+  color: #333;
 }
+
+
 .wishlist-table .action-bar {
     display: flex;
-    justify-content: space-between;
+    justify-content: right;
     align-items: center;
     padding: 16px;
     background: #fff;
@@ -59,33 +86,8 @@
     font-family: sans-serif;
   }
 
-  .wishlist-table .left-group,
-  .wishlist-table .right-group {
+  .wishlist-table .action-bar-btns {
     display: flex;
-    align-items: center;
-    gap: 10px;
+    column-gap: 20px;
   }
-
-  .wishlist-table select {
-    padding: 10px 16px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    min-width: 180px;
-  }
-  .wishlist-table .add:hover{
-    background-color: darkorange;
-
-  }
-
-  .wishlist-table button {
-    padding: 10px 20px;
-    background-color: orange;
-    color: white;
-    border: none;
-    border-radius: 2px;
-    font-weight: bold;
-    font-size: 13px;
-    cursor: pointer;
-    white-space: nowrap;
-  }
+  

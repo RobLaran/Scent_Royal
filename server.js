@@ -12,6 +12,8 @@ if (process.pkg) {
 
 const express = require('express');
 const app = express();
+const bodyParser = require("body-parser");
+const session = require('express-session');
 const expressLayouts = require('express-ejs-layouts');
 const router = require ('./routes');
 
@@ -35,6 +37,18 @@ app.use(express.static(publicPath));
 
 app.use(expressLayouts);
 app.set('layout', 'layout');
+
+app.use(session({
+    secret: 'darting1223',
+    resave: false,
+    saveUninitialized: false
+}));
+
+// Parse application/json
+app.use(bodyParser.json());
+
+// Parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/', router);
 

@@ -8,27 +8,7 @@
     <div class="grid-container">
         <ul class="grid">
         <% featureds.forEach(featured => { %>
-            <li class="item">
-                <div class="item-img">
-                    <div class="add-to-wishlist-wrapper">
-                            <i class="fa-regular fa-heart add-to-wishlist icon"></i>
-                    </div>
-                    <a href="/shop/product/<%= featured.id %>" class="dark-wrapper">
-                    </a>
-                    <img src="<%= featured.image %>" alt="<%= featured.brand %>" class="product">
-                </div>
-                <div class="item-title">
-                    <a href="/shop/product/<%= featured.id %> %>"><%= featured.title %></a>
-                </div>
-                <div class="item-price">₱<%= featured.currentPrice.toFixed(2) %></div>
-                <button class="atc-button button" onclick="addToCart(this)" data-product='<%- JSON.stringify(featured) %>'>
-                  <% if (featured.added_to_cart) { %>
-                    View Cart
-                  <% } else { %>
-                    Add To Cart
-                  <% } %>
-                </button>
-            </li>
+            <%- include('../partials/productCard', { product: featured }) %>
         <% }) %>
         </ul>
     </div>
@@ -74,20 +54,10 @@
         <div class="title-section">
             <h2>Special Offers </h2>
         </div>
-        <div class="card">
-            <div class="card-img">
-                <div class="add-to-wishlist-wrapper">
-                        <i class="fa-regular fa-heart add-to-wishlist icon"></i>
-                </div>
-                <a href="/shop/product/<%= special.id %>" class="dark-wrapper">
-                </a>
-                <img src="<%= special.image %>" alt="<%= special.brand %>" class="product">
-            </div>
-            <div class="card-title">
-                <a href="/shop/product/<%= special.id %>"><%= special.title %></a>
-            </div>
-            <div class="card-price">₱<%= special.currentPrice.toFixed(2) %></div>
-            <button class="atc-button button" onclick="addToCart(this)" data-product='<%- JSON.stringify(special) %>'>Add To Cart</button>
+        <div class="grid-container">
+            <ul class="grid">
+                <%- include('../partials/productCard', { product: special }) %>
+            </ul>
         </div>
     </div>
 
@@ -98,21 +68,7 @@
         <div class="grid-container">
             <ul class="grid">
             <% bests.forEach(best => { %>
-                <li class="item">
-                    <div class="item-img">
-                        <div class="add-to-wishlist-wrapper">
-                                <i class="fa-regular fa-heart add-to-wishlist icon"></i>
-                        </div>
-                        <a href="/shop/product/<%= best.id %>" class="dark-wrapper">
-                        </a>
-                        <img src="<%= best.image %>" alt="<%= best.brand %>" class="product">
-                    </div>
-                    <div class="item-title">
-                        <a href="/shop/product/<%= best.id %> %>"><%= best.title %></a>
-                    </div>
-                    <div class="item-price">₱<%= best.currentPrice.toFixed(2) %></div>
-                    <button class="atc-button button" onclick="addToCart(this)" data-product='<%- JSON.stringify(best) %>'>Add To Cart</button>
-                </li>
+                <%- include('../partials/productCard', { product: best }) %>
             <% }) %>
             </ul>
         </div>

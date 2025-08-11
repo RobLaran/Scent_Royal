@@ -1,20 +1,25 @@
 const express = require('express');
 const router = express.Router();
 
-const fetchFilters = require('../middleware/filters');
-const productRoutes = require('./productRoutes');
-const blogRoutes = require('./blogRoutes');
-
-router.use(fetchFilters);
+router.use(require('../middleware/filters'));
 
 router.use((req, res, next) => {
   res.locals.currentPath = req.path;
+  res.locals.user = req.session?.user || null;
+  res.locals.isAdmin = req.session?.user?.isAdmin || false;
+  res.locals.isLoggedIn = req.session?.isLoggedIn || false;
   next();
 });
 
-router.use('/', productRoutes);
+router.use('/', require('./productRoutes'));
 
-router.use('/', blogRoutes);
+router.use('/', require('./blogRoutes'));
+
+router.use('/wishlist', require('./wishlistRoutes'));
+
+router.use('/admin', require('./adminRoutes'));
+
+router.use('/user', require('./userRoutes'));
 
 router.get('/about', (req, res) => {
   res.render('pages/About', { title: 'About' });
@@ -24,20 +29,12 @@ router.get('/contact', (req, res) => {
   res.render('pages/Contact', { title: 'Contact' });
 });
 
-router.get('/wishlist', (req, res) => {
-  res.render('pages/Wishlist', { title: 'Wishlist' });
-});
-
 router.get('/cart', (req, res) => {
   res.render('pages/Cart', { title: 'Shopping Cart' });
 });
 
-router.get('/login', (req, res) => {
-  res.render('pages/Login', { title: 'Login' });
-});
-
-router.get('/register', (req, res) => {
-  res.render('pages/Register', { title: 'Register' });
+router.use((req, res) => {
+    res.status(404).render("pages/errors/404", { title: "Page Not Found", message: "The page you are looking for does not exist.", isError: true });
 });
 
 module.exports = router;

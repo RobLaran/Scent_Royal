@@ -1,11 +1,13 @@
-const db = require('../config/database_connection');
+const Product = require('../models/product.model');
+
 
 module.exports = {
   async showHome(req, res) {
     try {
-      const [featureds] = await db.query('SELECT * FROM perfumes WHERE brand = ?', ['CHANEL']);
-      const [bests] = await db.query('SELECT * FROM perfumes WHERE category = ? LIMIT 6', ['Women']);
-      const [specials] = await db.query('SELECT * FROM perfumes WHERE id = 6');
+      const userId = req.session?.user?.id || null;
+      const featureds = await Product.getProducts(userId,'brand = ?',['CHANEL']);
+      const bests = await Product.getProducts(userId,'category = ? LIMIT 6',['Women']);
+      const specials = await Product.getProducts(userId,'id = 6');
 
       res.render('pages/Home', {
         featureds,

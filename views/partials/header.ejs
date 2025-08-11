@@ -10,6 +10,14 @@
                 <li class="nav-tab <%= currentPath === '/' ? 'active' : '' %>">
                     <a href="/">Home</a>
                 </li>
+
+                <% if(isAdmin && isLoggedIn) { %>
+                    <li class="nav-tab <%= currentPath === '/admin/dashboard' ? 'active' : '' %>">
+                        <a href="/admin/dashboard">Dashboard</a>
+                    </li>
+                <% } %>
+
+
                 <li class="nav-tab <%= currentPath.includes('/shop') ? 'active' : '' %> dropdown-tab ">
                     <a href="/shop">Shop</a>
                     <div class="arrow">
@@ -56,16 +64,39 @@
                 <li class="nav-tab <%= currentPath === '/contact' ? 'active' : '' %>">
                     <a href="/contact">Contact</a>
                 </li>
-                <li class="nav-tab <%= currentPath === '/wishlist' ? 'active' : '' %>">
-                    <a href="/wishlist" class="icon"><i class="fa-regular fa-heart"></i></a>
-                </li>
-                <li class="nav-tab <%= currentPath === '/cart' ? 'active' : '' %>">
-                    <a href="/cart" class="icon"><i class="fa-solid fa-cart-shopping"></i></a>
-                </li>
-                <li class="nav-tab">
-                    <a href="/login">
-                        <button class="button">Login</button>
-                    </a>
+
+                <% if(!isAdmin) { %>
+                    <li class="nav-tab <%= currentPath === '/wishlist' ? 'active' : '' %>">
+                        <a href="/wishlist" class="icon"><i class="fa-regular fa-heart"></i></a>
+                    </li>
+                    <li class="nav-tab <%= currentPath === '/cart' ? 'active' : '' %>">
+                        <a href="/cart" class="icon"><i class="fa-solid fa-cart-shopping"></i></a>
+                    </li>
+                <% } else { %>
+                    <li class="nav-tab <%= currentPath === '/admin/products' ? 'active' : '' %>">
+                        <a href="/admin/products">Products</a>
+                    </li>
+                <% } %>
+
+                <li class="nav-tab user-tab">
+                    <% if (isLoggedIn) { %>
+                        <% if(isAdmin) { %>
+                            <a href="/admin/logout">
+                                <button class="button">Logout</button>
+                            </a>
+                        <% } else { %>
+                            <a href="/user/logout">
+                            <button class="button">Logout</button>
+                            </a>
+                        <% } %>
+
+                        <p><span>Hi, <%= user.name %></span></p>
+                    <% } else { %>
+                        <a href="/user/login">
+                            <button class="button">Login</button>
+                        </a>
+                    <% } %>
+
                 </li>
             </ul>
         </div>

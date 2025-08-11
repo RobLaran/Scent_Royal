@@ -1,0 +1,95 @@
+.admin-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ====== Admin CARD ====== */
+.admin-card {
+    background-color: #fff;
+    width: 350px;
+    padding: 40px 30px;
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #d4a93f;
+    text-align: center;
+}
+
+/* ====== TITLE ====== */
+.admin-card h2 {
+    margin: 0 0 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.admin-card p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* ====== INPUT FIELDS ====== */
+.input-group {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+    padding: 5px 0;
+}
+
+.input-group i {
+    margin-right: 10px;
+    color: #777;
+}
+
+.input-group input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 0.95rem;
+    padding: 8px 0;
+}
+
+/* ====== BUTTON ====== */
+.admin-btn {
+    background-color: #d4a93f;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 2px;
+    color: #000;
+    transition: background-color 0.3s ease;
+}
+
+.admin-btn:hover {
+    background-color: #c19938;
+}
+
+/* ====== SIGN-UP LINK ====== */
+.signup-text {
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+.signup-text a {
+    color: #ff6b6b;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.signup-text a:hover {
+    text-decoration: underline;
+}
+
+
+/* ====== ADMIN DASHBOARD ====== */
+.dashboard-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}

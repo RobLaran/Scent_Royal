@@ -1,0 +1,31 @@
+<div class="admin-container">
+    <% if(user && user.isAdmin) { %>
+
+        <div class="adminLoggedIn">
+            <h1>You are already login as Admin.</h1>
+        </div>
+
+    <% } else { %>
+
+        <form class="admin-card" method="POST" action="/admin/login">
+            <h2>Admin Login</h2>
+            <p>Sign in to manage your eCommerce website</p>
+
+            <div class="input-group">
+                <i class="fa fa-user"></i>
+                <input type="email" name="email" placeholder="Enter your email">
+            </div>
+
+            <div class="input-group">
+                <i class="fa fa-lock"></i>
+                <input type="password" name="password" placeholder="Enter your password">
+            </div>
+
+            <button class="admin-btn" type="submit">Login as Admin</button>
+
+            <div class="signup-text">
+                <a href="/">Forgot password?</a>
+            </div>
+        </form>
+    <% } %>
+</div>

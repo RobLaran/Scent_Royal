@@ -28,7 +28,7 @@
             </div> 
 
           <button class="add-to-cart button" onclick="addToCart(this)" data-product='<%- JSON.stringify(product) %>'><i class="fa-solid fa-cart-shopping icn"></i>Add to Cart</button>
-          <button class="wishlist button"><i class="fa-solid fa-heart icn"></i>Wishlist</button>
+          <button class="wishlist button <%= (isLoggedIn && product.in_wishlist) ? 'active' : '' %>"  data-product-id="<%= product.id %>"><i class="fa-solid fa-heart icn"></i>Wishlist</button>
         </div>
         </div>
       </div>

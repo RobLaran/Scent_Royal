@@ -1,6 +1,6 @@
 <div class="login-container wrapper">
     <section id="lr-form" class="lr-container">
-        <form id="loginform" class="lr-inner active">
+        <form id="loginform" class="lr-inner active" method="POST" action="/user/login">
             <div class="lr-inner-cont">  
                 <div class="title"> 
                     <h2>Welcome Back</h2>
@@ -14,7 +14,7 @@
                                 <i class="fa-solid fa-user"></i>
                             </div>
                             <div class="input">
-                                <input type="email" id="email" placeholder="Enter your email" required>
+                                <input type="email" name="login_email" id="login-email" placeholder="Enter your email" required>
                             </div>
                             
                         </div>
@@ -24,7 +24,7 @@
                                 <i class="fa-solid fa-lock"></i> 
                             </div>
                             <div class="input">
-                                <input type="password" id="password" placeholder="Enter your password" required>
+                                <input type="password" name="login_password" id="login-password" placeholder="Enter your password" required>
                             </div>  
                         </div>
 
@@ -39,7 +39,7 @@
             </div>
         </form>
 
-        <form id="registerform" class="lr-inner">
+        <form id="registerform" class="lr-inner" method="POST" action="/user/register">
             <div class="lr-inner-cont">
                 <div class="title">
                     <h2>Create Account</h2>
@@ -53,7 +53,7 @@
                                 <i class="fa-solid fa-user"></i>
                             </div>
                             <div class="input">
-                                <input type="text" id="username" placeholder="Enter your username" required>
+                                <input type="text" id="register-username" name="register_username" placeholder="Enter your username" required>
                             </div>
                         </div>
 
@@ -62,7 +62,7 @@
                                 <i class="fa-solid fa-envelope"></i>
                             </div>
                             <div class="input">
-                                <input type="email" id="email" placeholder="Enter your email" required>
+                                <input type="email" id="register-email" name="register_email" placeholder="Enter your email" required>
                             </div>
                         </div>
 
@@ -71,7 +71,7 @@
                                 <i class="fa-solid fa-lock"></i> 
                             </div>
                             <div class="input">
-                                <input type="password" id="password" placeholder="Create a password" required>
+                                <input type="password" id="register-password" name="register_password" placeholder="Create a password" required>
                             </div>  
                         </div>
 
