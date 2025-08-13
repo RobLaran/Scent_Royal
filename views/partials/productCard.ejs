@@ -1,23 +1,37 @@
 <li class="item">
     <div class="item-img">
-        <form class="add-to-wishlist-wrapper <%= (isLoggedIn && product.in_wishlist) ? 'active' : '' %>" 
-            data-product-id="<%= product.id %>">
+        <form
+            class="add-to-wishlist-wrapper <%= (isLoggedIn && product.in_wishlist) ? 'active' : '' %>"
+            data-product-id="<%= product.id %>"
+        >
             <button type="submit" class="wishlist-btn">
                 <i class="fa-solid fa-heart add-to-wishlist icon"></i>
                 <i class="fa-regular fa-heart add-to-wishlist icon"></i>
             </button>
         </form>
 
-
-        <a href="/shop/product/<%= product.id %>" class="dark-wrapper">
-        </a>
-        <img src="<%= product.image %>" alt="<%= product.brand %>" class="product">
+        <a href="/shop/product/<%= product.id %>" class="dark-wrapper"> </a>
+        <img
+            src="<%= product.image %>"
+            alt="<%= product.brand %>"
+            class="product"
+        />
     </div>
     <div class="item-title">
         <a href="/shop/product/<%= product.id %> %>"><%= product.title %></a>
     </div>
     <div class="item-price">₱<%= product.currentPrice.toFixed(2) %></div>
-    <button class="atc-button button" onclick="addToCart(this)" data-product='<%- JSON.stringify(product) %>'>
-        Add To Cart
+    <button
+        class="atc-button button <%= product.in_cart ? 'added' : '' %>"
+        data-is-logged-in="<%= isLoggedIn %>"
+        data-is-in-cart="<%= product.in_cart %>"
+        data-product-id="<%= product.id %>"
+        data-price="<%= product.currentPrice %>"
+    >
+        <% if (product.in_cart) { %> 
+            View Cart
+        <% } else { %> 
+            Add To Cart 
+        <% } %>
     </button>
 </li>

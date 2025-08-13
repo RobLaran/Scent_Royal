@@ -1,47 +1,75 @@
 <div class="wishlist-table wrapper">
-	<% if (isLoggedIn && products.length !== 0) { %>
+    <% if (isLoggedIn && products.length !== 0) { %>
 
     <table>
-      <thead>
-        <tr>
-          <th></th>
-          <th>Product Name</th>
-          <th>Unit Price</th>
-          <th>Date Added</th>
-          <th>Stock Status</th>
-          <th>Action</th>
-        </tr>
-      </thead>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Product Name</th>
+                <th>Unit Price</th>
+                <th>Date Added</th>
+                <th>Stock Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
 
-      <tbody>
+        <tbody>
+            <% products.forEach(product => { %>
+            <tr class="wishlist-item">
+                <td>
+                    <button
+                        class="remove-icon"
+                        data-product-id="<%= product.id %>"
+                    >
+                        ×
+                    </button>
+                </td>
+                <td>
+                    <img src="<%= product.image %>" alt="Image" />
+                    <span
+                        ><a href="/shop/product/<%= product.id %>"
+                            ><%= product.title %></a
+                        ></span
+                    >
+                </td>
+                <td>₱<%= product.currentPrice.toFixed(2) %></td>
+                <td><%= product.date_added %></td>
+                <td>
+                    <%= (product.available !== 0) ? '✔ In stock' : '✘ Out ofstock' %>
+                </td>
+                <td>
 
-			<% products.forEach(product => { %>
-				<tr class="wishlist-item">
-					<td><button class="remove-icon" data-product-id="<%= product.id %>">×</button></td>
-					<td>
-						<img src="<%= product.image %>" alt="Image" />
-						<span><a href="/shop/product/<%= product.id %>"><%= product.title %></a></span>
-					</td>
-					<td>₱<%= product.currentPrice %></td>
-					<td><%= product.date_added %></td>
-					<td><%= (product.available !== 0) ? '✔ In stock' : '✘ Out of stock' %></td>
-					<td>
-						<button class="add-to-cart button">Add To Cart</button>
-					</td>
-				</tr>
-			<% }) %>
-		
-      </tbody>
+					 <button
+                        class="atc-button button <%= product.in_cart ? 'added' : '' %>"
+                        data-is-logged-in="<%= isLoggedIn %>"
+                        data-is-in-cart="<%= product.in_cart %>"
+                        data-product-id="<%= product.id %>"
+                        data-price="<%= product.currentPrice %>"
+                    >
+                        <% if (product.in_cart) { %> 
+							View Cart 
+						<% } else { %>
+                        	Add To Cart 
+						<% } %>
+                    </button>
+                   
+                </td>
+            </tr>
+            <% }) %>
+        </tbody>
     </table>
 
-	<div class="action-bar">
-		<div class="action-bar-btns">
-			<button class="remove-all button">REMOVE ALL</button>
-			<button class="add button">ADD ALL TO <br> CART</button>
-		</div>
-	</div>
+    <div class="action-bar">
+        <div class="action-bar-btns">
+            <button class="remove-all button">REMOVE ALL</button>
+            <button class="add button">
+                ADD ALL TO <br />
+                CART
+            </button>
+        </div>
+    </div>
 
-	<% } else { %>
-		<h1>No Products Added</h1>
-	<% } %>
+    <% } else { %>
+    <h1>No Products Added</h1>
+    <% } %>
 </div>

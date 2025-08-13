@@ -356,12 +356,24 @@ ul.grid > li.item > .item-price {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    position: relative;
 } 
+
+.button.added {
+    background-color: var(--underline-color);
+    color: var(--primary-text);
+    outline: 2px solid var(--underline-color);
+}
 
 .button:hover,
 .button.active {
-    color: #fff;
+    color: var(--primary-text);
     background-color: var(--button-color);
+    outline: 2px solid var(--button-color);
+}
+
+.button:hover a {
+    color: var(--primary-text);
 }
 
 ul.grid > li.item > .item-img ~ div,

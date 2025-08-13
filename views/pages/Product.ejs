@@ -1,35 +1,78 @@
 <div class="product-view-container wrapper">
     <div class="main-content">
-      <div class="product-image-section">
-        <img src="<%= product.image %>" alt="Main Product" class="main-img">
-      </div>
-      <div class="product-details">
-        <h2><%= product.title %></h2>
-        <p class="price">₱<%= product.currentPrice.toFixed(2) %></p>
-        <p class="description first">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam quod, laudantium reiciendis, deleniti inventore rerum ex illum minus, sint itaque saepe at sunt voluptatum ab beatae. Eligendi velit natus ad.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus alias consequatur ipsam harum! Ducimus cumque, officia cum sint nihil culpa a sed quasi aspernatur, quibusdam et cupiditate, maxime doloremque similique!
-        </p>
-        <p class="description second">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima facilis quam eligendi placeat ducimus repellat officia enim minus, debitis ipsa reiciendis! Debitis itaque quibusdam et molestias quas labore officiis quos.
-        </p>
-        <div class="tags">
-          <p class="fields"><strong>Type: </strong><a href="/shop/type/<%= product.type %>"><%= product.type %></a></p>
-          <p class="fields"><strong>Category: </strong><a href="/shop/category/<%= product.category %>"><%= product.category %></a></p>
-          <p class="fields"><strong>Location: </strong><a href="https://www.google.com/maps/place/<%= product.itemLocation %>"><%= product.itemLocation %></a></p>
-          <p class="fields"><strong><%= product.available %> available / <%= product.sold %> sold</strong> </p>
+        <div class="product-image-section">
+            <img
+                src="<%= product.image %>"
+                alt="Main Product"
+                class="main-img"
+            />
         </div>
+        <div class="product-details">
+            <h2><%= product.title %></h2>
+            <p class="price">₱<%= product.currentPrice.toFixed(2) %></p>
+            <p class="description first">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Quibusdam quod, laudantium reiciendis, deleniti inventore rerum
+                ex illum minus, sint itaque saepe at sunt voluptatum ab beatae.
+                Eligendi velit natus ad. Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Doloribus alias consequatur ipsam harum!
+                Ducimus cumque, officia cum sint nihil culpa a sed quasi
+                aspernatur, quibusdam et cupiditate, maxime doloremque
+                similique!
+            </p>
+            <p class="description second">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
+                facilis quam eligendi placeat ducimus repellat officia enim
+                minus, debitis ipsa reiciendis! Debitis itaque quibusdam et
+                molestias quas labore officiis quos.
+            </p>
+            <div class="tags">
+                <p class="fields">
+                    <strong>Type: </strong
+                    ><a href="/shop/type/<%= product.type %>"
+                        ><%= product.type %></a
+                    >
+                </p>
+                <p class="fields">
+                    <strong>Category: </strong
+                    ><a href="/shop/category/<%= product.category %>"
+                        ><%= product.category %></a
+                    >
+                </p>
+                <p class="fields">
+                    <strong>Location: </strong
+                    ><a
+                        href="https://www.google.com/maps/place/<%= product.itemLocation %>"
+                        ><%= product.itemLocation %></a
+                    >
+                </p>
+                <p class="fields">
+                    <strong
+                        ><%= product.available %> available / <%= product.sold
+                        %> sold</strong
+                    >
+                </p>
+            </div>
 
-        <div class="cart-section">
-          <div class="quantity-selector">
-                <button class="qty-btn">-</button>
-                <input type="number" value="0" min="0">
-                <button class="qty-btn">+</button>
-            </div> 
-
-          <button class="add-to-cart button" onclick="addToCart(this)" data-product='<%- JSON.stringify(product) %>'><i class="fa-solid fa-cart-shopping icn"></i>Add to Cart</button>
-          <button class="wishlist button <%= (isLoggedIn && product.in_wishlist) ? 'active' : '' %>"  data-product-id="<%= product.id %>"><i class="fa-solid fa-heart icn"></i>Wishlist</button>
+            <div class="cart-section">
+                <button
+                    class="atc-button button <%= product.in_cart ? 'added' : '' %>"
+                    data-is-logged-in="<%= isLoggedIn %>"
+                    data-is-in-cart="<%= product.in_cart %>"
+                    data-product-id="<%= product.id %>"
+                    data-price="<%= product.currentPrice %>"
+                >
+                    <i class="fa-solid fa-cart-shopping icn"></i>
+                    <% if (product.in_cart) { %> View Cart <% } else { %> Add To
+                    Cart <% } %>
+                </button>
+                <button
+                    class="wishlist button <%= (isLoggedIn && product.in_wishlist) ? 'added' : '' %>"
+                    data-product-id="<%= product.id %>"
+                >
+                    <i class="fa-solid fa-heart icn"></i>Wishlist
+                </button>
+            </div>
         </div>
-        </div>
-      </div>
+    </div>
 </div>

@@ -6,3 +6,4 @@ import_db.bat
 log.txt
 run.bat
 tasks.txt
+package-lock.json

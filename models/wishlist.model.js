@@ -28,7 +28,7 @@ module.exports = {
         const exist = await this.isInWishlist(productId, userId);
 
         if(!!exist) {
-            return;
+            throw new Error('Item already in Wishlist');
         }
 
         await db.query(

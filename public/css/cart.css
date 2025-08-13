@@ -3,12 +3,25 @@
   margin-bottom: 40px;
 }
 
+.cart-container h1.no-items {
+  align-self: center;
+  justify-self: center;
+  margin-top: 80px;
+}
+
 .cart-container table {
   width: 100%;
   border-collapse: collapse;
 }
 .cart-container thead tr {
   background: #f9f9f9;
+}
+.cart-container td a {
+  text-decoration: none;
+  color: var(--tertiary-text);
+}
+.cart-container td a:hover {
+  color: var(--secondary-text);
 }
 .cart-container th,
 .cart-container td {

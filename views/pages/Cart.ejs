@@ -1,79 +1,69 @@
 <div class="cart-container wrapper">
-    <table>
-      <thead>
-        <tr>
-          <th></th>
-          <th>PRODUCT</th>
-          <th>PRICE</th>
-          <th>QUANTITY</th>
-          <th>SUBTOTAL</th>
-        </tr>
-      </thead>
 
-      <tbody>
-            <tr class="row">
-                <td><button class="remove-btn">&times;</button></td>
-                <td><img class="product-image" src="/img/Ustraa.jpg" alt="Ustraa Ammunition Cologne" /> Ustraa Ammunition Cologne – 100 Ml – Perfume For Men</td>
-                <td>$340.00</td>
-                <td>
-                    <button>-</button>
-                    <input type="text" class="qty-input" value="1"  />
-                    <button>+</button>
-                </td>
-                <td>$<span class="product-subtotal">340.00</span></td>
-            </tr>
-            
-            <tr class="row">
-          <td><button class="remove-btn">&times;</button></td>
-          <td><img class="product-image" src="/img/christian.jpg" alt="Christian Dior Sauvage" /> Christian Dior Sauvage Eau De Parfum Spray For Men, Blue , 3.4 Ounce</td>
-          <td>$180.00</td>
-          <td>
-            <button>-</button>
-            <input type="text" class="qty-input" value="1"  />
-            <button>+</button>
-          </td>
-          <td>$<span class="product-subtotal">180.00</span></td>
-        </tr>
+    <% if (isLoggedIn && items.length !== 0) { %>
+     
+        <table>
+            <thead>
+                <tr>
+                <th></th>
+                <th>PRODUCT</th>
+                <th>PRICE</th>
+                <th>QUANTITY</th>
+                <th>SUBTOTAL</th>
+                </tr>
+            </thead>
 
-        <tr class="row">
-          <td><button class="remove-btn">&times;</button></td>
-          <td><img class="product-image" src="/img/diesel.jpg" alt="Diesel Only The Brave" /> Diesel Only The Brave By Diesel For Men Edt Spray 4.2 Oz</td>
-          <td>$168.00</td>
-          <td>
-            <button>-</button>
-            <input type="text" class="qty-input" value="1"  />
-            <button>+</button>
-          </td>
-          <td>$<span class="product-subtotal">168.00</span></td>
-        </tr>
-        <tr>
-      </tbody>
-</table>
+            <tbody>
 
-<div class="coupon-section clearfix">
-  <input type="text" placeholder="Coupon code" class="coupon-input" />
-  <button class="coupon-btn">APPLY COUPON</button>
-  <button class="update-btn">UPDATE CART</button>
-</div>
+                <% items.forEach(item => { %>
+                    
+                    <tr class="row">
+                        <td><button class="cart remove-btn" data-product-id="<%= item.id %>">&times;</button></td>
+                        <td>
+                            <img class="product-image" src="<%= item.image %>" alt="Ustraa Ammunition Cologne" /> 
+                            <a href="/shop/product/<%= item.id %>"><%= item.title %></a>
+                        </td>
+                        <td>$<%= item.currentPrice.toFixed(2) %></td>
+                        <td>
+                            <button class="subtract-quantity-btn" data-item-id="<%= item.itemId %>">-</button>
+                            <input type="text" class="qty-input" value="<%= item.quantity %>"  />
+                            <button class="add-quantity-btn" data-item-id="<%= item.itemId %>">+</button>
+                        </td>
+                        <td>$<span class="product-subtotal"><%= (item.currentPrice * item.quantity).toFixed(2) %></span></td>
+                    </tr>
 
-<div class="cart-totals-container">
-  <div class="cart-totals">
-     <table>
-    <tr>
-      <th>Subtotal</th>
-        <td id="cart-subtotal">$<span></span></td>
-    </tr>
-    <tr>
-      <th>Shipping</th>
-      <td>Free Shipping</td>
-    </tr>
-    <tr>
-      <th>Total</th>
-        <td id="cart-total">$<span></span></td>
-    </tr>
-  </table>
-  <button class="btn" style="width: 100%;">PROCEED TO CHECKOUT</button>
-  </div>
-</div>
+                <% }) %>
+
+            </tbody>
+        </table>
+
+        <div class="coupon-section clearfix">
+            <input type="text" placeholder="Coupon code" class="coupon-input" />
+            <button class="coupon-btn">APPLY COUPON</button>
+        </div>
+
+        <div class="cart-totals-container">
+            <div class="cart-totals">
+                <table>
+                    <tr>
+                    <th>Subtotal</th>
+                        <td id="cart-subtotal">$<span></span></td>
+                    </tr>
+                    <tr>
+                    <th>Shipping</th>
+                    <td>Free Shipping</td>
+                    </tr>
+                    <tr>
+                    <th>Total</th>
+                        <td id="cart-total">$<span></span></td>
+                    </tr>
+                </table>
+                <button class="btn" style="width: 100%;">PROCEED TO CHECKOUT</button>
+            </div>
+        </div>
+
+    <% } else { %>
+		<h1 class="no-items">No Items Added </h1>
+    <% } %>
 
 </div>

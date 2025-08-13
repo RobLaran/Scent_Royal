@@ -1,6 +1,4 @@
 .popup-container {
-        visibility: hidden;
-        opacity: 0;
         display: flex;
         justify-content: center; 
         min-height: 100vh;    
