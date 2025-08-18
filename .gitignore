@@ -1,4 +1,5 @@
 mysql/
+.vscode
 .env
 node_modules/
 app.exe
@@ -8,3 +9,6 @@ run.bat
 tasks.txt
 package-lock.json
 package.json
+import_db.bat
+reset_db.bat
+run_mysql_server.bat
