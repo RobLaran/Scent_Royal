@@ -31,6 +31,10 @@
   vertical-align: middle;
 }
 
+.wishlist-table td.price {
+  color: var(--price-fg);
+}
+
 .wishlist-table td img {
   width: 40px;
   margin-right: 10px;
@@ -71,8 +75,7 @@
 }
 
 .wishlist-table .remove-icon:hover {
-  outline: 2px solid #333;
-  color: #333;
+  color: #ff0000;
 }
 
 

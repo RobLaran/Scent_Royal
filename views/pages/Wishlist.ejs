@@ -32,7 +32,7 @@
                         ></span
                     >
                 </td>
-                <td>₱<%= product.currentPrice.toFixed(2) %></td>
+                <td class="price">₱<%= product.currentPrice.toFixed(2) %></td>
                 <td><%= product.date_added %></td>
                 <td>
                     <%= (product.available !== 0) ? '✔ In stock' : '✘ Out ofstock' %>
@@ -62,7 +62,7 @@
     <div class="action-bar">
         <div class="action-bar-btns">
             <button class="remove-all button">REMOVE ALL</button>
-            <button class="add button">
+            <button class="add button" data-items="<%= JSON.stringify(products) %>">
                 ADD ALL TO <br />
                 CART
             </button>

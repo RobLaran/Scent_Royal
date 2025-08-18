@@ -1,5 +1,6 @@
 const db = require('../config/database_connection');
 const Product = require('./product.model');
+const Cart = require('./cart.model');
 
 function getCurrentDate() {
     const currentDate = new Date().toISOString().split('T')[0];
@@ -61,5 +62,18 @@ module.exports = {
             [productId, userId]
         );
         return !!exists;
+    },
+
+    async addAllToCart(items, userId) {
+        if(!!items) {
+            items.forEach(async (item) => {
+                const productId = item.id;
+                const isIncart = await Cart.isInCart(productId, userId);
+
+                if(!isIncart) {
+                    await Cart.add(productId, userId);
+                }
+            });
+        }
     }
 }

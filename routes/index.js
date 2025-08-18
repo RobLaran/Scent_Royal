@@ -19,6 +19,8 @@ router.use("/wishlist", require("./wishlistRoutes"));
 
 router.use("/cart", require("./cartRoutes"));
 
+router.use("/checkout", require("./checkoutRoutes"));
+
 router.use("/admin", require("./adminRoutes"));
 
 router.use("/user", require("./userRoutes"));
@@ -29,6 +31,10 @@ router.get("/about", (req, res) => {
 
 router.get("/contact", (req, res) => {
     res.render("pages/Contact", { title: "Contact" });
+});
+
+router.get("/order", (req, res) => {
+    res.render("pages/Order", { title: "Placed Order" });
 });
 
 router.use((req, res) => {

@@ -35,8 +35,6 @@ module.exports = {
     async register(req, res) {
         const { register_username, register_email, register_password } = req.body;
 
-        console.log(req.body);
-
         try {
             const isUsernameExist = await userModel.findByUsername(register_username) ? true : false;
             const isEmailExist = await userModel.findByUsername(register_email) ? true : false;

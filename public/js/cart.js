@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (subtotalCell) {
                 total += parseFloat(
-                    subtotalCell.textContent.replace(/[$,]/g, "")
+                    subtotalCell.textContent.replace(/[₱,]/g, "")
                 );
             } else {
                 console.log("Invalid subtotal");
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const qtyInput = row.querySelector(".qty-input");
         const priceText = row.querySelector("td:nth-child(3)")?.textContent;
 
-        const price = parseFloat(priceText.replace(/[$,]/g, "")) || 0;
+        const price = parseFloat(priceText) || 0;
         const subtotalCell = row.querySelector("td:last-child");
 
         if (minusBtn && plusBtn && qtyInput && subtotalCell) {

@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node --watch server.js",
-    "compile": "pkg ./server.js --targets node18-win-x64 --output app.exe"
+    "compile": "pkg . --targets node18-win-x64 --output app.exe"
   },
   "keywords": [
     "e-commerce"
@@ -14,7 +14,7 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.2",
     "body-parser": "^2.2.0",
     "dotenv": "^17.2.0",
     "ejs": "^3.1.10",
@@ -28,13 +28,14 @@
   "bin": "server.js",
   "pkg": {
     "scripts": [
-      "config/**/*.js",
-      "controllers/**/*.js",
-      "models/**/*.js",
-      "routes/**/*.js",
-      "middleware/**/*.js",
+      "config/*.js",
+      "controllers/*.js",
+      "models/*.js",
+      "routes/*.js",
+      "middleware/*.js",
       "node_modules/ejs/**/*",
-      "node_modules/express-ejs-layouts/**/*"
+      "node_modules/express-ejs-layouts/**/*",
+      "node_modules/mysql2/**/*"
     ],
     "assets": [
       "views/**/*",

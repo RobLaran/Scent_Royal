@@ -10,6 +10,7 @@
     --button-color: var(--secondary-text);
     --border-color: var(--button-color);
     --underline-color: #D4AF37;
+    --price-fg: #0077cc;
 }
 
 * {
@@ -339,7 +340,7 @@ ul.grid > li.item > .item-title:hover a {
 ul.grid > li.item > .item-price {
     font-size: 1.1em;
     font-weight: 700;
-    color: var(--secondary-text);
+    color: var(--price-fg);
 } 
 
 .button {

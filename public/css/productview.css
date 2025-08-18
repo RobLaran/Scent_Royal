@@ -41,7 +41,7 @@
 
 .product-view-container .price {
   font-size: 24px;
-  color: #0077cc;
+  color: var(--price-fg);
   padding-top: 20px;
 }
 

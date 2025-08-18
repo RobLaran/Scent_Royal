@@ -23,13 +23,13 @@
                             <img class="product-image" src="<%= item.image %>" alt="Ustraa Ammunition Cologne" /> 
                             <a href="/shop/product/<%= item.id %>"><%= item.title %></a>
                         </td>
-                        <td>$<%= item.currentPrice.toFixed(2) %></td>
+                        <td class="price">₱<%= item.currentPrice.toFixed(2) %></td>
                         <td>
                             <button class="subtract-quantity-btn" data-item-id="<%= item.itemId %>">-</button>
                             <input type="text" class="qty-input" value="<%= item.quantity %>"  />
                             <button class="add-quantity-btn" data-item-id="<%= item.itemId %>">+</button>
                         </td>
-                        <td>$<span class="product-subtotal"><%= (item.currentPrice * item.quantity).toFixed(2) %></span></td>
+                        <td class="total">₱<span class="product-subtotal"><%= (item.currentPrice * item.quantity).toFixed(2) %></span></td>
                     </tr>
 
                 <% }) %>
@@ -37,17 +37,17 @@
             </tbody>
         </table>
 
-        <div class="coupon-section clearfix">
+        <!-- <div class="coupon-section clearfix">
             <input type="text" placeholder="Coupon code" class="coupon-input" />
             <button class="coupon-btn">APPLY COUPON</button>
-        </div>
+        </div> -->
 
         <div class="cart-totals-container">
             <div class="cart-totals">
                 <table>
                     <tr>
                     <th>Subtotal</th>
-                        <td id="cart-subtotal">$<span></span></td>
+                        <td id="cart-subtotal" class="total">₱<span></span></td>
                     </tr>
                     <tr>
                     <th>Shipping</th>
@@ -55,10 +55,10 @@
                     </tr>
                     <tr>
                     <th>Total</th>
-                        <td id="cart-total">$<span></span></td>
+                        <td id="cart-total" class="total">₱<span></span></td>
                     </tr>
                 </table>
-                <button class="btn" style="width: 100%;">PROCEED TO CHECKOUT</button>
+                <a href="/checkout" class="checkout button">PROCEED TO CHECKOUT</a>
             </div>
         </div>
 
