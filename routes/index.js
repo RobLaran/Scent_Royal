@@ -33,8 +33,8 @@ router.get("/contact", (req, res) => {
     res.render("pages/Contact", { title: "Contact" });
 });
 
-router.get("/order", (req, res) => {
-    res.render("pages/Order", { title: "Placed Order" });
+router.get("/orders", (req, res) => {
+    res.render("pages/Orders", { title: "Your Orders" });
 });
 
 router.use((req, res) => {

@@ -1,5 +1,5 @@
 <div class="checkout-container wrapper">
-    <form class="checkout-grid">
+    <form class="checkout-grid" action="/checkout" method="POST">
         <!-- Left: Billing Details -->
         <div class="card p-20">
             <div class="section-hdr">
@@ -11,13 +11,13 @@
                     <label class="label"
                         >First name <span class="req-star">*</span></label
                     >
-                    <input class="input" type="text" required />
+                    <input class="input" type="text"  />
                 </div>
                 <div>
                     <label class="label"
                         >Last name <span class="req-star">*</span></label
                     >
-                    <input class="input" type="text" required />
+                    <input class="input" type="text"  />
                 </div>
 
                 <div>
@@ -28,7 +28,7 @@
                     <label class="label"
                         >Country / Region <span class="req-star">*</span></label
                     >
-                    <select class="select" required>
+                    <select class="select" >
                         <option value="">Select Country</option>
                         <option value="afghanistan">Afghanistan</option>
                         <option value="albania">Albania</option>
@@ -257,7 +257,7 @@
                         class="input"
                         type="text"
                         placeholder="House number and street name"
-                        required
+                        
                     />
                 </div>
                 <div>
@@ -273,33 +273,33 @@
                     <label class="label"
                         >Town / City <span class="req-star">*</span></label
                     >
-                    <input class="input" type="text" required />
+                    <input class="input" type="text"  />
                 </div>
                 <div>
                     <label class="label"
                         >State / County <span class="req-star">*</span></label
                     >
-                    <input class="input" type="text" required />
+                    <input class="input" type="text"  />
                 </div>
 
                 <div>
                     <label class="label"
                         >Postcode / ZIP <span class="req-star">*</span></label
                     >
-                    <input class="input" type="text" required />
+                    <input class="input" type="text"  />
                 </div>
                 <div>
                     <label class="label"
                         >Phone <span class="req-star">*</span></label
                     >
-                    <input class="input" type="text" required />
+                    <input class="input" type="text"  />
                 </div>
 
                 <div class="full">
                     <label class="label"
                         >Email address <span class="req-star">*</span></label
                     >
-                    <input class="input" type="email" required />
+                    <input class="input" type="email"  />
                 </div>
             </div>
         </div>

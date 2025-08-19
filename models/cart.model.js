@@ -29,6 +29,13 @@ module.exports = {
         );
     },
 
+    async removeAll(userId) {
+        await db.query(
+            "DELETE FROM cart WHERE user_id = ?",
+            [userId]
+        );
+    },
+
     async getItems(userId) {
         const query = "SELECT * FROM cart WHERE user_id = ?";
         const params = [userId];
