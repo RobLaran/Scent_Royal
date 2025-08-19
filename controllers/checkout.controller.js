@@ -49,7 +49,9 @@ module.exports = {
                     message: "Your cart is empty",
                 });
             }
-            
+
+            await Cart.removeAll(userId);
+
             res.redirect(`/checkout/order?confirmation=${confirmation}`);
         } catch (err) {
             console.error("Error:", err);
