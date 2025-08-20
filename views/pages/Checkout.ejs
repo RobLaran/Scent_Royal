@@ -11,24 +11,24 @@
                     <label class="label"
                         >First name <span class="req-star">*</span></label
                     >
-                    <input class="input" type="text"  />
-                </div>
+                    <input class="input" type="text" name="first_name" <%= required %> />
+                </div> 
                 <div>
                     <label class="label"
                         >Last name <span class="req-star">*</span></label
                     >
-                    <input class="input" type="text"  />
+                    <input class="input" type="text" name="last_name" <%= required %> />
                 </div>
 
                 <div>
                     <label class="label">Company name (optional)</label>
-                    <input class="input" type="text" />
+                    <input class="input" type="text" name="company" />
                 </div>
                 <div>
                     <label class="label"
-                        >Country / Region <span class="req-star">*</span></label
+                        >Country <span class="req-star">*</span></label
                     >
-                    <select class="select" >
+                    <select class="select" name="country" <%= required %> >
                         <option value="">Select Country</option>
                         <option value="afghanistan">Afghanistan</option>
                         <option value="albania">Albania</option>
@@ -256,8 +256,9 @@
                     <input
                         class="input"
                         type="text"
-                        placeholder="House number and street name"
-                        
+                        placeholder="Street name"
+                        name="street_address"
+                        <%= required %>
                     />
                 </div>
                 <div>
@@ -265,41 +266,36 @@
                     <input
                         class="input"
                         type="text"
-                        placeholder="Apartment, suite, unit, etc. (optional)"
+                        placeholder="House number (optional)"
+                        name="house_number"
                     />
                 </div>
 
                 <div>
                     <label class="label"
-                        >Town / City <span class="req-star">*</span></label
+                        > City <span class="req-star">*</span></label
                     >
-                    <input class="input" type="text"  />
-                </div>
-                <div>
-                    <label class="label"
-                        >State / County <span class="req-star">*</span></label
-                    >
-                    <input class="input" type="text"  />
+                    <input class="input" type="text" name="city" <%= required %> />
                 </div>
 
                 <div>
                     <label class="label"
                         >Postcode / ZIP <span class="req-star">*</span></label
                     >
-                    <input class="input" type="text"  />
+                    <input class="input" type="text" name="post_code" <%= required %> />
                 </div>
                 <div>
                     <label class="label"
                         >Phone <span class="req-star">*</span></label
                     >
-                    <input class="input" type="text"  />
+                    <input class="input" type="text" name="phone_number" <%= required %> />
                 </div>
 
                 <div class="full">
                     <label class="label"
                         >Email address <span class="req-star">*</span></label
                     >
-                    <input class="input" type="email"  />
+                    <input class="input" type="email" name="email" <%= required %> />
                 </div>
             </div>
         </div>
@@ -351,7 +347,7 @@
 
                 <div class="pay-box">
                     <div class="pay-row">
-                        <input type="radio" checked />
+                        <input type="radio" name="payment_option" value="cash_on_delivery" checked />
                         <label>Cash on delivery</label>
                     </div>
                     <p class="muted">Pay with cash upon delivery.</p>

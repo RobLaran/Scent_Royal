@@ -89,8 +89,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.querySelectorAll(".action-bar .add.button").forEach((button) => {
         button.addEventListener("click", async (e) => {
-            console.log("adding all to cart");
-
             try {
                 const items = await JSON.parse(e.currentTarget.dataset.items);
 

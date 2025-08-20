@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const placeOrderBtn = document.querySelector('.place-order.button');
-
     function updateCheckoutTotal() {
         let rows = document.querySelectorAll(".checkout-table-body tr.row");
         let subtotalCell = document.querySelector(
@@ -27,11 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
         // Update the subtotal and total in .cart-totals table
         if (subtotalCell) subtotalCell.textContent = total.toFixed(2);
         if (totalCell) totalCell.textContent = total.toFixed(2);
-    }
-
-    if(!!placeOrderBtn) {
-        placeOrderBtn.addEventListener('click', () => {
-        });
     }
 
     updateCheckoutTotal();

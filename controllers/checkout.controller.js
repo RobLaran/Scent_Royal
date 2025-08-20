@@ -1,4 +1,5 @@
 const Cart = require("../models/cart.model");
+const Order = require('../models/order.model');
 
 const title = "Checkout";
 
@@ -22,7 +23,7 @@ module.exports = {
                 });
             }
 
-            res.render("pages/Checkout", { items: cartItems, title: title });
+            res.render("pages/Checkout", { items: cartItems, title: title, required: '' });
         } catch (err) {
             console.error("Error:", err);
             res.status(500).send("Internal Server Error: Cannot Show Items");
@@ -32,29 +33,31 @@ module.exports = {
     async processOrder(req, res) {
         try {
             const userId = req.session?.user?.id;
-            const confirmation = true;
-
+            const billingInfo = req.body;
+            const cartItems = await Cart.getItems(userId);
+            
             if (!userId) {
                 return res.status(404).render("pages/errors/404", {
                     title: "Page not found",
                     message: "You need to login",
                 });
             }
-
-            const cartItems = await Cart.getItems(userId);
-
+            
             if(!cartItems || cartItems.length === 0) {
                 return res.status(404).render("pages/errors/404", {
                     title: "Page not found",
                     message: "Your cart is empty",
                 });
             }
+            
+            const orderId = await Order.create({ userId, items: cartItems, billing: billingInfo });
+            // await Cart.removeAll(userId);
 
-            await Cart.removeAll(userId);
-
-            res.redirect(`/checkout/order?confirmation=${confirmation}`);
+            res.redirect(`/checkout/order?order=${orderId}`);
         } catch (err) {
             console.error("Error:", err);
+            console.log(err);
+            
             res.status(500).send("Internal Server Error: Cannot Process Order");
         }  
     },
@@ -62,7 +65,7 @@ module.exports = {
     async placeOrder(req, res) {
         try {
             const userId = req.session?.user?.id;
-            const orderConfirmation = req.query.confirmation;
+            const orderNumber = req.query.order;
             const cartItems = await Cart.getItems(req.session?.user?.id || null);
 
             if (!userId) {
@@ -72,17 +75,21 @@ module.exports = {
                 });
             }
 
-            if (!orderConfirmation) {
+            if (!orderNumber) {
                 return res.status(404).render("pages/errors/404", {
                     title: "Page not found",
                     message: "You did not place your order yet",
                 });
             }
 
+
             res.render("pages/Order", { title: 'Order Received', items: cartItems });
         } catch (err) {
-            console.error("Error:", err);
-            res.status(500).send("Internal Server Error: Cannot Place Order");
+            console.error('Error:', err);
+            res.status(500).render('pages/errors/500', { 
+                title: 'Internal Server Error', 
+                message: 'Cannot Place Order' 
+            });
         }
     },
 };
