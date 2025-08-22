@@ -20,7 +20,7 @@ module.exports = {
     },
 
     async getOrders(userId) {
-        const query = "SELECT * FROM orders WHERE user_id = ?";
+        const query = "SELECT * FROM orders WHERE user_id = ? ORDER BY id DESC";
         const params = [userId];
 
         const [rows] = await db.query(query, params);
