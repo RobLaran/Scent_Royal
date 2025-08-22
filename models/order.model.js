@@ -68,4 +68,11 @@ module.exports = {
 
         return items;
     },
+
+    async remove(orderId, userId) {
+        await db.query(
+            "DELETE FROM orders WHERE id = ? AND user_id = ?",
+            [orderId, userId]
+        );
+    }
 };

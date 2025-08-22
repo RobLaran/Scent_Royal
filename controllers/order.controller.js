@@ -53,4 +53,29 @@ module.exports = {
             res.status(500).send("Internal Server Error: " + err);
         }
     },
+
+    async removeOrder(req, res) {
+        try {
+            const userId = req.session?.user?.id;
+            const orderId = req.params.id;
+
+            if (!userId) {
+                return res
+                    .status(401)
+                    .json({ message: "You must be logged in" });
+            }
+
+            await Order.remove(orderId, userId);
+            return res.json({
+                message: "Order removed",
+                success: true
+            });
+        } catch (err) {
+            console.error("Error:", err.message);
+            return res.status(500).json({
+                message: `Internal Server Error: Cannot remove product`,
+                success: false,
+            });
+        }
+    }
 };

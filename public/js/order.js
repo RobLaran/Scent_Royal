@@ -61,6 +61,31 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    document
+        .querySelectorAll(".order-card .heading .remove-btn")
+        .forEach((button) => {
+            button.addEventListener("click", async (e) => {
+                const orderId = button.dataset.orderId;
+
+                try {
+                    const res = await fetch(`orders/remove/${orderId}`, {
+                        method: "DELETE",
+                        headers: { "Content-Type": "application/json" },
+                    });
+
+                    const data = await res.json();
+                    console.log("Response from server:", data);
+                    if (data.success) {
+                        location.reload();
+                    } else {
+                        alert(data.message || "Failed to delete order");
+                    }
+                } catch (err) {
+                    alert("Error deleting order: " + err);
+                }
+            });
+        });
+
     updateOrderTotal();
     updateMainTotal();
 });

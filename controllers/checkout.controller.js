@@ -23,7 +23,7 @@ module.exports = {
                 });
             }
 
-            res.render("pages/Checkout", { items: cartItems, title: title, required: '' });
+            res.render("pages/Checkout", { items: cartItems, title: title, required: 'required' });
         } catch (err) {
             console.error("Error:", err);
             res.status(500).send("Internal Server Error: Cannot Show Items");
@@ -51,7 +51,7 @@ module.exports = {
             }
             
             const orderId = await Order.create({ userId, items: cartItems, billing: billingInfo });
-            // await Cart.removeAll(userId);
+            await Cart.removeAll(userId);
 
             res.redirect(`/orders/${orderId}`);
         } catch (err) {
