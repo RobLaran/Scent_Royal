@@ -55,11 +55,6 @@
                         </label>
                     </div>
                 </li>
-                <% if (!isAdmin) { %>
-                    <li class="nav-tab <%= currentPath.includes('/orders') ? 'active' : '' %>">
-                        <a href="/orders">Orders</a>
-                    </li>
-                <% } %>
                 <li class="nav-tab <%= currentPath === '/about' ? 'active' : '' %>">
                     <a href="/about">About</a>
                 </li>
@@ -76,6 +71,9 @@
                     </li>
                     <li class="nav-tab <%= currentPath === '/cart' ? 'active' : '' %>">
                         <a href="/cart" class="icon"><i class="fa-solid fa-cart-shopping"></i></a>
+                    </li>
+                    <li class="nav-tab <%= currentPath.includes('/orders') ? 'active' : '' %>">
+                        <a href="/orders" class="icon"><i class="fa-regular fa-truck"></i></a>
                     </li>
                 <% } else { %>
                     <li class="nav-tab <%= currentPath === '/admin/products' ? 'active' : '' %>">
