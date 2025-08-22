@@ -53,7 +53,7 @@ module.exports = {
             const orderId = await Order.create({ userId, items: cartItems, billing: billingInfo });
             // await Cart.removeAll(userId);
 
-            res.redirect(`/order/${orderId}`);
+            res.redirect(`/orders/${orderId}`);
         } catch (err) {
             res.status(500).send("Internal Server Error: " + err);
         }  

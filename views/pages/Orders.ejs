@@ -1,105 +1,43 @@
 <section class="orders wrapper">
-  <div class="orders-list">
+    <% if (isLoggedIn && orders.length !== 0) { %>
 
-    <!-- Order #1 -->
-    <div class="order-card">
-      <h3>Order #1001</h3>
-      <p>Date: Aug 15, 2025</p>
+        <div class="orders-list">
+            <% orders.forEach(order => { %>
+                <div class="order-card" data-order-id="<%= order.id %>">
+                    <h3>Order #<%= order.id %></h3>
+                    <p>Date: <%= order.created_at %></p>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Product</th>
-            <th>Qty</th>
-            <th>Price</th>
-            <th>Subtotal</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Wireless Mouse</td>
-            <td>1</td>
-            <td>₱850</td>
-            <td>₱850</td>
-          </tr>
-          <tr>
-            <td>Mechanical Keyboard</td>
-            <td>1</td>
-            <td>₱2,400</td>
-            <td>₱2,400</td>
-          </tr>
-        </tbody>
-      </table>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Qty</th>
+                                <th>Price</th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
-      <div class="order-total">
-        <p>Total: ₱3,250</p>
-      </div>
-    </div>
+                            <% order.items.forEach(item => { %>
+                                <tr class="row">
+                                    <td><%= item.title %></td>
+                                    <td><%= item.quantity %></td>
+                                    <td>₱ <span><%= item.price.toFixed(2) %></span> </td>
+                                    <td class="item-subtotal">₱ <span><%= (item.quantity * item.price.toFixed(2)) %></span></td>
+                                </tr>
+                            <% }) %>
+                            
+                        </tbody>
+                    </table>
 
-    <!-- Order #2 -->
-    <div class="order-card">
-      <h3>Order #1000</h3>
-      <p>Date: Aug 10, 2025</p>
+                    <div class="order-total">
+                        <p>Total: ₱<span>0</span></p>
+                    </div>
+                </div>
+            <% }) %>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Product</th>
-            <th>Qty</th>
-            <th>Price</th>
-            <th>Subtotal</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Gaming Chair</td>
-            <td>1</td>
-            <td>₱7,500</td>
-            <td>₱7,500</td>
-          </tr>
-        </tbody>
-      </table>
+    <% } else { %>
+        <h1>No Orders</h1>
+    <% } %>
 
-      <div class="order-total">
-        <p>Total: ₱7,500</p>
-      </div>
-    </div>
-
-    <!-- Order #3 -->
-    <div class="order-card">
-      <h3>Order #999</h3>
-      <p>Date: Aug 1, 2025</p>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Product</th>
-            <th>Qty</th>
-            <th>Price</th>
-            <th>Subtotal</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>USB-C Hub</td>
-            <td>2</td>
-            <td>₱1,200</td>
-            <td>₱2,400</td>
-          </tr>
-          <tr>
-            <td>Laptop Stand</td>
-            <td>1</td>
-            <td>₱1,500</td>
-            <td>₱1,500</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="order-total">
-        <p>Total: ₱3,900</p>
-      </div>
-    </div>
-    
-
-  </div>
 </section>

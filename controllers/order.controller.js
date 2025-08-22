@@ -1,9 +1,24 @@
 const Order = require("../models/order.model");
-const Product = require("../models/product.model")
 
-const title = "Order Received";
+const title = "Orders";
 
 module.exports = {
+    async getOrders(req, res) {
+        try {
+            const userId = req.session?.user?.id;
+            const orders = await Order.getOrders(
+                userId
+            );
+
+            res.render("pages/Orders", {
+                title,
+                orders
+            });
+        } catch (err) {
+            res.status(500).send("Internal Server Error: " + err);
+        }
+    },
+
     async getOrder(req, res) {
         try {
             const userId = req.session?.user?.id;
@@ -28,14 +43,11 @@ module.exports = {
                 });
             }
 
-            console.log(orderItems);
-            
-
             res.render("pages/Order", {
                 order: order,
                 info: order.billing_info,
                 items: orderItems,
-                title: title
+                title: title,
             });
         } catch (err) {
             res.status(500).send("Internal Server Error: " + err);

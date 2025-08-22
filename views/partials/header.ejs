@@ -55,9 +55,14 @@
                         </label>
                     </div>
                 </li>
+                <% if (!isAdmin) { %>
+                    <li class="nav-tab <%= currentPath.includes('/orders') ? 'active' : '' %>">
+                        <a href="/orders">Orders</a>
+                    </li>
+                <% } %>
                 <li class="nav-tab <%= currentPath === '/about' ? 'active' : '' %>">
                     <a href="/about">About</a>
-                    </li>
+                </li>
                 <li class="nav-tab <%= currentPath.includes('/blog') ? 'active' : '' %>">
                     <a href="/blog">Blog</a>
                 </li>

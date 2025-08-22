@@ -21,7 +21,7 @@ router.use("/cart", require("./cartRoutes"));
 
 router.use("/checkout", require("./checkoutRoutes"));
 
-router.use("/order", require("./orderRoutes"));
+router.use("/orders", require("./orderRoutes"));
 
 router.use("/admin", require("./adminRoutes"));
 
@@ -33,10 +33,6 @@ router.get("/about", (req, res) => {
 
 router.get("/contact", (req, res) => {
     res.render("pages/Contact", { title: "Contact" });
-});
-
-router.get("/orders", (req, res) => {
-    res.render("pages/Orders", { title: "Your Orders" });
 });
 
 router.use((req, res) => {
