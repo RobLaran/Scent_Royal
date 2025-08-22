@@ -11,15 +11,15 @@ module.exports = {
 
         for (let item of items) {
             await db.query(
-                "INSERT INTO order_items (order_id, product_id, quantity, price) VALUES (?, ?, ?, ?)",
-                [orderId, item.id, item.quantity, item.currentPrice]
+                "INSERT INTO order_items (order_id, product_id, title, quantity, price) VALUES (?, ?, ?, ?, ?)",
+                [orderId, item.id, item.title, item.quantity, item.currentPrice]
             );
         }
 
         return orderId;
     },
 
-    async getOrderItems(orderId, userId) {
+    async getOrder(orderId, userId) {
         const [rows] = await db.query("SELECT * FROM orders WHERE id = ? AND user_id = ?", [orderId, userId]);
         if (!rows.length) return null;
 
@@ -27,6 +27,7 @@ module.exports = {
         const [items] = await db.query("SELECT * FROM order_items WHERE order_id = ?", [orderId]);
 
         order.items = items;
+        order.billing_info = JSON.parse(order.billing_info);
         return order;
     }
 };

@@ -7,8 +7,6 @@ module.exports = {
         try {
             const items = await Cart.getItems(req.session?.user?.id || null);
 
-            console.log(items);
-
             res.render("pages/Cart", { items: items, title: title });
         } catch (err) {
             console.error("Error:", err);

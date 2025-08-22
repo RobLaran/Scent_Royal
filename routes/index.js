@@ -21,6 +21,8 @@ router.use("/cart", require("./cartRoutes"));
 
 router.use("/checkout", require("./checkoutRoutes"));
 
+router.use("/order", require("./orderRoutes"));
+
 router.use("/admin", require("./adminRoutes"));
 
 router.use("/user", require("./userRoutes"));

@@ -3,82 +3,70 @@
 
     <!-- Top mini summary box -->
     <div class="card p-20">
-      <div class="order-mini">
-        <div class="row">
-          <div class="upper">Order Number:</div>
-          <div class="value">5423</div>
+        <div class="order-mini">
+            <div class="row">
+                <div class="upper">Order Number:</div>
+                <div class="value"><%= order.id %></div>
+            </div>
+            <div class="row">
+                <div class="upper">Date:</div>
+                <div class="value"><%= order.created_at %></div>
+            </div>
+            <div class="row">
+                <div class="upper">Total:</div>
+                <div class="value blue">$1,003.00</div>
+            </div>
+            <div class="row">
+                <div class="upper">Payment Method:</div>
+                <div class="value"><%= info.payment_option %></div>
+            </div>
         </div>
-        <div class="row">
-          <div class="upper">Date:</div>
-          <div class="value">18, 2025</div>
-        </div>
-        <div class="row">
-          <div class="upper">Total:</div>
-          <div class="value blue">$1,003.00</div>
-        </div>
-        <div class="row">
-          <div class="upper">Payment Method:</div>
-          <div class="value">Cash on delivery</div>
-        </div>
-      </div>
     </div>
 
     <p class="small mt-14">Pay with cash upon delivery.</p>
 
     <!-- Order details table -->
     <div class="card p-20 mt-18">
-      <h3 class="section-title">Order details</h3>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>PRODUCT</th>
-            <th style="width:160px;">TOTAL</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Christian Dior Sauvage Eau De Parfum Spray For Men, Blue, 3.4 Ounce × 1</td>
-            <td>$180.00</td>
-          </tr>
-          <tr>
-            <td>DOLCE GABBANA Intenso Eau De Parfum Spray For Men, 4.2 Fluid Ounce × 1</td>
-            <td>$190.00</td>
-          </tr>
-          <tr>
-            <td>Giorgio Armani Si Eau De Parfum Spray For Women, 3.4 Ounce × 1</td>
-            <td>$120.00</td>
-          </tr>
-          <tr>
-            <td>Diesel Only The Brave By Diesel For Men Edt Spray 4.2 Oz × 1</td>
-            <td>$168.00</td>
-          </tr>
-          <tr>
-            <td>Jadore By Christian Dior For Women. Eau De Parfum Spray 3.4 Ounces × 1</td>
-            <td>$190.00</td>
-          </tr>
-          <tr>
-            <td>Paco Rabanne Pure Xs Eau De Toilette 50ml Gift Set × 1</td>
-            <td>$155.00</td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <td>SUBTOTAL:</td>
-            <td>$1,003.00</td>
-          </tr>
-          <tr>
-            <td>SHIPPING:</td>
-            <td>Free Shipping</td>
-          </tr>
-          <tr>
-            <td>PAYMENT METHOD:</td>
-            <td>Cash On Delivery</td>
-          </tr>
-          <tr>
-            <td><strong>TOTAL:</strong></td>
-            <td><strong>$1,003.00</strong></td>
-          </tr>
-        </tfoot>
-      </table>
+        <h3 class="section-title">Order details</h3>
+        <table class="table order-table">
+            <thead>
+                <tr>
+                    <th>PRODUCT</th>
+                    <th style="width: 160px">TOTAL</th>
+                </tr>
+            </thead>
+            <tbody class="order-table-body">
+                <% if (!!items) { %> <% items.forEach(item => { %>
+                <tr class="row">
+                    <td class="item-title"><%= item.title %></td>
+                    <td class="item-subtotal total">
+                        ₱<span
+                            ><%= (item.price * item.quantity).toFixed(2)
+                            %></span
+                        >
+                    </td>
+                </tr>
+                <% }) %> <% } %>
+            </tbody>
+            
+            <tfoot>
+                <tr>
+                    <td>SUBTOTAL:</td>
+                    <td class="subtotal">$ <span></span></td>
+                </tr>
+                <tr>
+                    <td>SHIPPING:</td>
+                    <td>Free Shipping</td>
+                </tr>
+                <tr>
+                    <td>PAYMENT METHOD:</td>
+                    <td><%= info.payment_option %></td>
+                </tr>
+                <tr>
+                    <td><strong>TOTAL:</strong></td>
+                    <td class="main-total"><strong>$ <span></span> </strong></td>
+                </tr>
+            </tfoot>
+        </table>
     </div>
 </div>

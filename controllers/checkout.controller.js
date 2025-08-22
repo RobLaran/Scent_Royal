@@ -53,12 +53,9 @@ module.exports = {
             const orderId = await Order.create({ userId, items: cartItems, billing: billingInfo });
             // await Cart.removeAll(userId);
 
-            res.redirect(`/checkout/order?order=${orderId}`);
+            res.redirect(`/order/${orderId}`);
         } catch (err) {
-            console.error("Error:", err);
-            console.log(err);
-            
-            res.status(500).send("Internal Server Error: Cannot Process Order");
+            res.status(500).send("Internal Server Error: " + err);
         }  
     },
 
