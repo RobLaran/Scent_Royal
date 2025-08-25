@@ -85,11 +85,3 @@
     text-decoration: underline;
 }
 
-
-/* ====== ADMIN DASHBOARD ====== */
-.dashboard-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-}

@@ -3,7 +3,7 @@ const router = express.Router();
 const adminController = require('../controllers/admin.controller');
 
 function isAdminOnly(req, res, next) {
-    if (!req.session.user.isAdmin) {
+    if (!req.session.user?.isAdmin) {
         return res.status(403).render('pages/errors/403', { 
             title: 'Forbidden', 
             message: 'You are not allowed to access this page.' 
@@ -26,7 +26,7 @@ router.get('/dashboard', isAdminOnly, (req, res) => {
 });
 
 router.get('/products', isAdminOnly, (req, res) => {
-    res.render('pages/ProductList', { title: 'Products' });
+    res.render('pages/Products', { title: 'Products' });
 });
 
 module.exports = router;

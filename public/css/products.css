@@ -1,0 +1,98 @@
+.products-container {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.products-container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+  color: #007bff;
+}
+
+/* Add Product Form */
+.products-container .add-product {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.products-container .add-product h2 {
+  margin-bottom: 15px;
+}
+
+.products-container .add-product form {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.products-container .add-product input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  flex: 1 1 200px;
+}
+
+.products-container .add-product button {
+  padding: 10px 20px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.products-container .add-product button:hover {
+  background: #0056b3;
+}
+
+/* Product List */
+.products-container .product-list {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.products-container .product-list h2 {
+  margin-bottom: 15px;
+}
+
+.products-container .product-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.products-container .product-list th,
+.products-container .product-list td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.products-container .product-list th {
+  background: #f1f1f1;
+  font-weight: bold;
+}
+
+.products-container .product-list tr:hover {
+  background: #f9f9f9;
+}
+
+.products-container .delete-btn {
+  padding: 6px 12px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.products-container .delete-btn:hover {
+  background: #b02a37;
+}
