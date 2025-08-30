@@ -1,5 +1,6 @@
 const userModel = require('../models/user.model');
 const Product = require('../models/product.model');
+const Order = require('../models/order.model')
 
 module.exports = {
     async loginAsAdmin(req, res) {
@@ -54,6 +55,21 @@ module.exports = {
         } catch (err) {
             console.error('Error:', err);
             res.status(500).send('Internal Server Error: Cannot Show Products');
+        }
+    },
+
+    async getOrders(req, res) {
+        try {
+            const orders = await Order.getAllOrders();
+
+            console.log(orders);
+            console.log(orders[0].items);
+            
+
+            res.render('pages/admin/Orders', { orders: orders, title: 'Orders' });
+        } catch (err) {
+            console.error('Error:', err);
+            res.status(500).send('Internal Server Error: Cannot Show Orders');
         }
     },
 

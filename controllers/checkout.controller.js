@@ -50,7 +50,7 @@ module.exports = {
                 });
             }
             
-            const orderId = await Order.create({ userId, items: cartItems, billing: billingInfo });
+            const orderId = await Order.create({ userId, total: billingInfo.total, items: cartItems, billing: billingInfo });
             await Cart.removeAll(userId);
 
             res.redirect(`/orders/${orderId}`);

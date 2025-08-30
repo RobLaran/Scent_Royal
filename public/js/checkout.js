@@ -7,6 +7,9 @@ document.addEventListener("DOMContentLoaded", () => {
         let totalCell = document.querySelector(
             "table.checkout-table tfoot .main-total span"
         );
+        let inputTotal = document.querySelector(
+            "table.checkout-table tfoot .main-total .input-total"
+        );
         let total = 0;
 
         rows.forEach((row) => {
@@ -25,6 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
         // Update the subtotal and total in .cart-totals table
         if (subtotalCell) subtotalCell.textContent = total.toFixed(2);
         if (totalCell) totalCell.textContent = total.toFixed(2);
+
+        if(inputTotal) inputTotal.value = total.toFixed(2);
     }
 
     updateCheckoutTotal();

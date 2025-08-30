@@ -1,204 +1,67 @@
 <div class="admin-orders wrapper">
     <table>
         <tbody>
-            <tr class="row-order">
-                <td>#<span>1001</span></td>
-                <td>
-                    <div class="img">
-                        <img src="/img/box.png" alt="" />
-                    </div>
-                </td>
-                <td>
-                    <ul class="products">
-                        <li>
-                            <span class="title limit"
-                                >Ariana Grande Cloud Pink - Charming 3.4oz Eau
-                                de Parfum, Sealed</span
-                            >
-                            x <span class="quantity">3</span>
-                        </li>
-                        <li>
-                            <span class="title limit"
-                                >Tascano Leather by Maison Alhambra for Women
-                                2.7 oz Brand New in Box</span
-                            >
-                            x <span class="quantity">4</span>
-                        </li>
-                        <li>
-                            <span class="title limit"
-                                >Jo Malone London Grapefruit Cologne 3.4
-                                oz</span
-                            >
-                            x <span class="quantity">1</span>
-                        </li>
-                    </ul>
-                    <div class="no-items">Items: <span>3</span></div>
-                </td>
-                <td>₱<span class="price">1200</span></td>
-                <td>
-                    <ul class="info">
-                        <li>
-                            <strong
-                                ><span class="customer-name limit"
-                                    >Federico Martin</span
-                                ></strong
-                            >
-                        </li>
-                        <li>
-                            <span class="street-address limit"
-                                >7000 Los Aromos 1657</span
-                            >
-                        </li>
-                        <li>
-                            <span class="city-state limit"
-                                >Tandil, Buenos Aires, Buenos Aires</span
-                            >
-                        </li>
-                        <li>
-                            <span class="phone-number limit">9876543210</span>
-                        </li>
-                    </ul>
-                </td>
-                <td><span class="status status-pending">Pending</span></td>
-                <td>
-                    <div class="method">Method: <span>COD</span></div>
-                    <div class="date">Date: <span>8/30/2025</span></div>
-                </td>
-                <td></td>
-            </tr>
 
-            <tr class="row-order">
-                <td>#<span>1001</span></td>
-                <td>
-                    <div class="img">
-                        <img src="/img/box.png" alt="" />
-                    </div>
-                </td>
-                <td>
-                    <ul class="products">
-                        <li>
-                            <span class="title limit"
-                                >Ariana Grande Cloud Pink - Charming 3.4oz Eau
-                                de Parfum, Sealed</span
-                            >
-                            x <span class="quantity">3</span>
-                        </li>
-                        <li>
-                            <span class="title limit"
-                                >Tascano Leather by Maison Alhambra for Women
-                                2.7 oz Brand New in Box</span
-                            >
-                            x <span class="quantity">4</span>
-                        </li>
-                        <li>
-                            <span class="title limit"
-                                >Jo Malone London Grapefruit Cologne 3.4
-                                oz</span
-                            >
-                            x <span class="quantity">1</span>
-                        </li>
-                    </ul>
-                    <div class="no-items">Items: <span>3</span></div>
-                </td>
-                <td>₱<span class="price">1200</span></td>
-                <td>
-                    <ul class="info">
-                        <li>
-                            <strong
-                                ><span class="customer-name limit"
-                                    >Federico Martin</span
-                                ></strong
-                            >
-                        </li>
-                        <li>
-                            <span class="street-address limit"
-                                >7000 Los Aromos 1657</span
-                            >
-                        </li>
-                        <li>
-                            <span class="city-state limit"
-                                >Tandil, Buenos Aires, Buenos Aires</span
-                            >
-                        </li>
-                        <li>
-                            <span class="phone-number limit">9876543210</span>
-                        </li>
-                    </ul>
-                </td>
-                <td><span class="status status-pending">Pending</span></td>
-                <td>
-                    <div class="method">Method: <span>COD</span></div>
-                    <div class="date">Date: <span>8/30/2025</span></div>
-                </td>
-                <td></td>
-            </tr>
+            <% orders.forEach(order => { %>
+                
+                <tr class="row-order">
+                    <td>#<span><%= order.id %></span></td>
+                    <td>
+                        <div class="img">
+                            <img src="/img/box.png" alt="" />
+                        </div>
+                    </td>
+                    <td>
+                        <ul class="products">
 
-            <tr class="row-order">
-                <td>#<span>1001</span></td>
-                <td>
-                    <div class="img">
-                        <img src="/img/box.png" alt="" />
-                    </div>
-                </td>
-                <td>
-                    <ul class="products">
-                        <li>
-                            <span class="title limit"
-                                >Ariana Grande Cloud Pink - Charming 3.4oz Eau
-                                de Parfum, Sealed</span
-                            >
-                            x <span class="quantity">3</span>
-                        </li>
-                        <li>
-                            <span class="title limit"
-                                >Tascano Leather by Maison Alhambra for Women
-                                2.7 oz Brand New in Box</span
-                            >
-                            x <span class="quantity">4</span>
-                        </li>
-                        
-                        <li>
-                            <span class="title limit"
-                                >Jo Malone London Grapefruit Cologne 3.4
-                                oz</span
-                            >
-                            x <span class="quantity">1</span>
-                        </li>
-                    </ul>
-                    <div class="no-items">Items: <span>3</span></div>
-                </td>
-                <td>₱<span class="price">1200</span></td>
-                <td>
-                    <ul class="info">
-                        <li>
-                            <strong
-                                ><span class="customer-name limit"
-                                    >Federico Martin</span
-                                ></strong
-                            >
-                        </li>
-                        <li>
-                            <span class="street-address limit"
-                                >7000 Los Aromos 1657</span
-                            >
-                        </li>
-                        <li>
-                            <span class="city-state limit"
-                                >Tandil, Buenos Aires, Buenos Aires</span
-                            >
-                        </li>
-                        <li>
-                            <span class="phone-number limit">9876543210</span>
-                        </li>
-                    </ul>
-                </td>
-                <td><span class="status status-pending">Pending</span></td>
-                <td>
-                    <div class="method">Method: <span>COD</span></div>
-                    <div class="date">Date: <span>8/30/2025</span></div>
-                </td>
-                <td></td>
-            </tr>
+                            <% order.items.forEach(item => { %>
+                                <li>
+                                    <span class="title limit"
+                                        ><%= item.title %></span
+                                    >
+                                    x <span class="quantity"><%= item.quantity %></span>
+                                </li>
+                            <% }) %>
+
+                        </ul>
+                        <div class="no-items">Items: <span><%= order.items.length %></span></div>
+                    </td>
+                    <td>₱<span class="total"><%= order.total %></span></td>
+                    <td>
+                        <ul class="info">
+                            <% const info = JSON.parse(order.billing_info); %>
+
+                            <li>
+                                <strong
+                                    ><span class="customer-name limit"
+                                        ><%= info.first_name %></span
+                                    ></strong
+                                >
+                            </li>
+                            <li>
+                                <span class="street-address limit"
+                                    ><%= info.street_address %><%= info.house_number ? ', ' + info.house_number : '' %></span
+                                >
+                            </li>
+                            <li>
+                                <span class="city-state limit"
+                                    ><%= info.city %>, <%= info.country %>, <%= info.post_code %></span
+                                >
+                            </li>
+                            <li>
+                                <span class="phone-number limit"><%= info.phone_number %></span>
+                            </li>
+                        </ul>
+                    </td>
+                    <td><span class="status status-pending">Pending</span></td>
+                    <td>
+                        <div class="method">Method: <span><%= info.payment_option %></span></div>
+                        <div class="date">Date: <span><%= order.created_at %></span></div>
+                    </td>
+                    <td></td>
+                </tr>
+
+            <% }) %>
             
         </tbody>
     </table>

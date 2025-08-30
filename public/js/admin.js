@@ -40,5 +40,8 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
+
+    // Get total
+    
 });
 

@@ -25,8 +25,6 @@ router.post('/add-product', isAdminOnly, adminController.addProduct);
 router.delete('/products/:id', isAdminOnly, adminController.removeProduct)
 router.get('/products', isAdminOnly, adminController.getProducts);
 
-router.get('/orders', isAdminOnly, (req, res) => {
-    res.render('pages/admin/orders', { title: 'Orders' });
-});
+router.get('/orders', isAdminOnly, adminController.getOrders);
 
 module.exports = router;

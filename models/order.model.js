@@ -1,10 +1,10 @@
 const db = require("../config/database_connection");
 
 module.exports = {
-    async create({ userId, items, billing }) {
+    async create({ userId, total, items, billing }) {
         const [result] = await db.query(
-            "INSERT INTO orders (user_id, billing_info, created_at) VALUES (?, ?, CURDATE())",
-            [userId, JSON.stringify(billing)]
+            "INSERT INTO orders (user_id, total, billing_info, created_at) VALUES (?, ?, ?, CURDATE())",
+            [userId, total, JSON.stringify(billing)]
         );
 
         const orderId = result.insertId;
@@ -17,6 +17,29 @@ module.exports = {
         }
 
         return orderId;
+    },
+
+    async getAllOrders() {
+        const query = "SELECT * FROM orders";
+        const params = [];
+
+        const [rows] = await db.query(query, params);
+
+        if (rows.length === 0) {
+            return [];
+        }
+
+        return await Promise.all(
+            rows.map(async (row) => {
+                const orderId = row.id;
+                const items = await this.getOrderItems(orderId);
+
+                return {
+                    ...row,
+                    items
+                };
+            })
+        );
     },
 
     async getOrders(userId) {
