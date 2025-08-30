@@ -1,0 +1,74 @@
+.admin-orders {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background: #f5f5f5;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.admin-orders .card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.admin-orders h2 {
+  margin-bottom: 15px;
+}
+
+.admin-orders table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-orders table tr.row-order {
+    border-bottom: 0.1rem solid #aeaeae;
+}
+
+.admin-orders td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.admin-orders tr ul li span.limit {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 280px;
+}
+
+.admin-orders td .img {
+    width: max-content;
+}
+
+.admin-orders td ul {
+    padding: 0;
+}
+
+.admin-orders td .no-items {
+    margin-top: 1rem;
+}
+
+.admin-orders tr:hover {
+  background: #f9f9f9;
+}
+
+.admin-orders .status {
+  font-weight: bold;
+}
+
+.admin-orders .status-pending {
+  color: #d35400;
+}
+
+.admin-orders .status-shipped {
+  color: #1a73e8;
+}
+
+.admin-orders .status-completed {
+  color: #2ecc71;
+}
+

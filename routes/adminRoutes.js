@@ -1,17 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const adminController = require('../controllers/admin.controller');
-
-function isAdminOnly(req, res, next) {
-    if (!req.session.user?.isAdmin) {
-        return res.status(403).render('pages/errors/403', { 
-            title: 'Forbidden', 
-            message: 'You are not allowed to access this page.' 
-        });
-    }
-
-    next();
-}
+const { isAdminOnly } = require('../middleware/auth');
 
 router.get('/login', (req, res) => {
     res.render('pages/Admin', { title: 'Admin', user: req.session.user});
@@ -22,11 +12,17 @@ router.post('/login', adminController.loginAsAdmin);
 router.get('/logout', adminController.logoutAdmin);
 
 router.get('/dashboard', isAdminOnly, (req, res) => {
-    res.render('pages/Dashboard', { title: 'Dashboard' });
+    res.render('pages/admin/Dashboard', { title: 'Dashboard' });
 });
 
-router.get('/products', isAdminOnly, (req, res) => {
-    res.render('pages/Products', { title: 'Products' });
+router.get('/add-product', isAdminOnly, (req, res) => {
+    res.render('pages/admin/AddProduct', { title: 'Add Product' });
+});
+
+router.get('/products', isAdminOnly, adminController.getProducts);
+
+router.get('/orders', isAdminOnly, (req, res) => {
+    res.render('pages/admin/orders', { title: 'Orders' });
 });
 
 module.exports = router;

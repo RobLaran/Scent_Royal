@@ -1,0 +1,38 @@
+<div class="products-container wrapper">
+    <!-- Product List -->
+    <div class="product-list">
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Brand</th>
+                    <th>Category</th>
+                    <th>Type</th>
+                    <th>Price</th>
+                    <th>Stock</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <% products.forEach(product => { %>
+                    <tr>
+                        <td>
+                            <div class="img">
+                                <img src="<%= product.image %>" alt="product image">
+                            </div>
+                            <span class="title"><%= product.title %></span>
+                        </td>
+                        <td class="brand"><%= product.brand %></td>
+                        <td class="category"><%= product.category %></td>
+                        <td class="type"><%= product.type %></td>
+                        <td class="price">₱<span><%= product.currentPrice.toFixed(2) %></span></td>
+                        <td class="stock"><%= product.available %></td>
+                        <td class="action"><button class="admin-products remove-btn btn">Remove</button></td>
+                    </tr>   
+                <% }) %>
+
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,5 +1,5 @@
 const userModel = require('../models/user.model');
-const bcrypt = require('bcryptjs');
+const Product = require('../models/product.model');
 
 module.exports = {
     async loginAsAdmin(req, res) {
@@ -9,13 +9,13 @@ module.exports = {
             const user = await userModel.getAdminByEmail(email);
             
             if (!user) {
-                return res.status(404).render('pages/errors/404', { 
-                    title: 'Invalid', 
+                return res.status(401).render('pages/errors/401', { 
+                    title: 'Unauthorized', 
                     message: 'Invalid credentials' 
                 });
             } else if(user.password !== password) {
-                return res.status(404).render('pages/errors/404', { 
-                    title: 'Invalid', 
+                return res.status(401).render('pages/errors/401', { 
+                    title: 'Unauthorized', 
                     message: 'Wrong password' 
                 });
             }
@@ -40,10 +40,21 @@ module.exports = {
         }
     },
     
-    logoutAdmin(req, res) {
+    async logoutAdmin(req, res) {
         req.session.destroy(() => {
             res.redirect('/admin/login');
         });
+    },
+
+    async getProducts(req, res) {
+        try {
+            const products = await Product.getProducts();
+
+            res.render('pages/admin/Products', { products: products, title: 'Product List' });
+        } catch (err) {
+            console.error('Error:', err);
+            res.status(500).send('Internal Server Error: Cannot Show Products');
+        }
     }
 };
 

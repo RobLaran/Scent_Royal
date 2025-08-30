@@ -8,12 +8,12 @@ module.exports = {
             const user = await userModel.validateUser(login_email, login_password);
 
             if (!user) {
-                return res.status(404).render('pages/errors/404', { 
+                return res.status(400).render('pages/errors/400', { 
                     title: 'Invalid', 
                     message: 'Invalid credentials' 
                 });
             } else if(user.isAdmin) {
-                return res.status(404).render('pages/errors/404', { 
+                return res.status(400).render('pages/errors/400', { 
                     title: 'Invalid', 
                     message: 'You are trying to log in as an Admin' 
                 });

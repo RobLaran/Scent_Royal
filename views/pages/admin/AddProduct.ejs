@@ -1,0 +1,63 @@
+<div class="products-container wrapper">
+    <!-- Add Product Form -->
+    <div class="add-product">
+        <h2>Add New Product</h2>
+        <form>
+            <div class="form-grid">
+                <!-- Image -->
+                <div class="form-group image-upload">
+                    <label>Image</label>
+                    <div class="preview-container">
+                        <img id="imagePreview" src="" alt="Image Preview" />
+                        <input type="file" name="image" required />
+                    </div>
+                </div>
+
+                <!-- Brand (fixed: select instead of plain text input) -->
+                <div class="form-group brand">
+                    <label>Brand</label>
+                    <input type="text" name="brand" required />
+                </div>
+
+                <!-- Type -->
+                <div class="form-group type">
+                    <label>Type</label>
+                    <input type="text" name="type" required />
+                </div>
+
+                <!-- Title (full width textarea) -->
+                <div class="form-group full title">
+                    <label>Title</label>
+                    <textarea name="title" rows="2"></textarea>
+                </div>
+
+                <!-- Price -->
+                <div class="form-group price">
+                    <label>Price (₱)</label>
+                    <input type="number" name="currentPrice" required />
+                </div>
+
+                <!-- Category (optional: make it a select too) -->
+                <div class="form-group category">
+                    <label>Category</label>
+                    <input type="text" name="category" required />
+                </div>
+
+                <!-- Stock -->
+                <div class="form-group stock">
+                    <label>Stock</label>
+                    <input type="number" name="available" required />
+                </div>
+
+                <!-- Location (full width, wider) -->
+                <div class="form-group location">
+                    <label>Location</label>
+                    <input type="text" name="itemLocation" />
+                </div>
+            </div>
+
+            <button type="submit" class="btn-primary">+ Add Product</button>
+        </form>
+    </div>
+</div>
+
