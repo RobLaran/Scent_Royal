@@ -13,7 +13,7 @@ function isUser(req, res, next) {
     if (req.session.user?.isAdmin) {
         return res.status(404).render('pages/errors/404', { 
             title: 'Page not found', 
-            message: 'The page you.' 
+            message: 'You must login as a user.' 
         });
     }
 

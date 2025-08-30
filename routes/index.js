@@ -1,4 +1,5 @@
 const express = require("express");
+const { isUser } = require("../middleware/auth");
 const router = express.Router();
 
 router.use(require("../middleware/filters"));
@@ -11,27 +12,29 @@ router.use((req, res, next) => {
     next();
 });
 
-router.use("/", require("./productRoutes"));
+router.use('/', require('./homeRoutes'))
 
-router.use("/", require("./blogRoutes"));
+router.use("/shop", isUser, require("./productRoutes"));
 
-router.use("/wishlist", require("./wishlistRoutes"));
+router.use("/blog", isUser, require("./blogRoutes"));
 
-router.use("/cart", require("./cartRoutes"));
+router.use("/wishlist", isUser, require("./wishlistRoutes"));
 
-router.use("/checkout", require("./checkoutRoutes"));
+router.use("/cart", isUser, require("./cartRoutes"));
 
-router.use("/orders", require("./orderRoutes"));
+router.use("/checkout", isUser, require("./checkoutRoutes"));
+
+router.use("/orders", isUser, require("./orderRoutes"));
 
 router.use("/admin", require("./adminRoutes"));
 
-router.use("/user", require("./userRoutes"));
+router.use("/user", isUser, require("./userRoutes"));
 
-router.get("/about", (req, res) => {
+router.get("/about", isUser, (req, res) => {
     res.render("pages/About", { title: "About" });
 });
 
-router.get("/contact", (req, res) => {
+router.get("/contact", isUser, (req, res) => {
     res.render("pages/Contact", { title: "Contact" });
 });
 

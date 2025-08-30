@@ -11,11 +11,11 @@ router.post('/login', adminController.loginAsAdmin);
 
 router.get('/logout', adminController.logoutAdmin);
 
-router.get('/add-product', isAdminOnly, (req, res) => {
+router.get('/add-product', (req, res) => {
     res.render('pages/admin/AddProduct', { title: 'Add Product' });
 });
 
-router.post('/add-product', isAdminOnly, adminController.addProduct);
+router.post('/add-product', adminController.addProduct);
 
 
 router.delete('/products/:id', isAdminOnly, adminController.removeProduct)
