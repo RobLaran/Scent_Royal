@@ -2,14 +2,14 @@
     <!-- Add Product Form -->
     <div class="add-product">
         <h2>Add New Product</h2>
-        <form>
+        <form method="post" action="/admin/add-product">
             <div class="form-grid">
                 <!-- Image -->
                 <div class="form-group image-upload">
                     <label>Image</label>
                     <div class="preview-container">
-                        <img id="imagePreview" src="" alt="Image Preview" />
-                        <input type="file" name="image" required />
+                        <img id="imagePreview" src="/img/svg/imagePreview.svg" alt="Image Preview" />
+                        <input type="file" name="image" onchange="readURL(this);" required />
                     </div>
                 </div>
 

@@ -25,7 +25,6 @@ module.exports = {
         };
     },
 
-
     async getProducts(userId = null, query = "", params = []) {
         const safeUserId = userId || 0;
 
@@ -78,4 +77,34 @@ module.exports = {
         const results = await this.getProducts(userId, query, params);
         return results[0];
     },
+
+    async add(newProduct) {
+        // Insert new product
+        const query =
+            "INSERT INTO perfumes (brand, title, type, category, available, currentPrice, itemLocation, image) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        const params = [
+            newProduct.brand,
+            newProduct.title,
+            newProduct.type,
+            newProduct.category,
+            newProduct.available,
+            newProduct.currentPrice,
+            newProduct.itemLocation,
+            newProduct.image
+        ];
+
+        await db.query(query, params);
+
+        return {
+            success: true,
+            message: "Item added to Inventory successfully",
+        };
+    },
+    
+    async remove(productId) {
+        await db.query(
+            "DELETE FROM perfumes WHERE id = ?",
+            [productId]
+        );
+    }
 };

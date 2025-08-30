@@ -28,7 +28,7 @@
                         <td class="type"><%= product.type %></td>
                         <td class="price">₱<span><%= product.currentPrice.toFixed(2) %></span></td>
                         <td class="stock"><%= product.available %></td>
-                        <td class="action"><button class="admin-products remove-btn btn">Remove</button></td>
+                        <td class="action"><button class="admin-products remove-btn btn" data-product-id="<%= product.id %>">Remove</button></td>
                     </tr>   
                 <% }) %>
 

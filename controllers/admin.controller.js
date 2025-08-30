@@ -55,6 +55,48 @@ module.exports = {
             console.error('Error:', err);
             res.status(500).send('Internal Server Error: Cannot Show Products');
         }
+    },
+
+    async addProduct(req, res) {
+        try {
+            const { brand, title, type, category, available, currentPrice, itemLocation, image } = req.body;
+
+            const newProduct = {
+                brand, 
+                title, 
+                type, 
+                category, 
+                available, 
+                currentPrice,
+                itemLocation, 
+                image: image.startsWith("http") ? image : "/img/" + image
+            };
+
+            await Product.add(newProduct);
+
+            return res.redirect("/admin/add-product");
+        } catch (err) {
+            console.error("Error:", err.message);
+            return res.redirect("/admin/add-product");
+        }
+    },
+
+    async removeProduct(req, res) {
+        try {
+            const productId = await req.params.id;
+
+            await Product.remove(productId);
+            return res.json({
+                message: "Product removed",
+                success: true
+            });
+        } catch (err) {
+            console.error("Error:", err.message);
+            return res.status(500).json({
+                message: `Internal Server Error: Cannot remove product`,
+                success: false,
+            });
+        }
     }
 };
 

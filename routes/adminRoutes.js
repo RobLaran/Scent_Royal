@@ -19,6 +19,10 @@ router.get('/add-product', isAdminOnly, (req, res) => {
     res.render('pages/admin/AddProduct', { title: 'Add Product' });
 });
 
+router.post('/add-product', isAdminOnly, adminController.addProduct);
+
+
+router.delete('/products/:id', isAdminOnly, adminController.removeProduct)
 router.get('/products', isAdminOnly, adminController.getProducts);
 
 router.get('/orders', isAdminOnly, (req, res) => {
