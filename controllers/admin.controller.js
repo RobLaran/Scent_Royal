@@ -27,7 +27,7 @@ module.exports = {
 
             // If admin
             if (user.isAdmin) {
-                return res.redirect('/admin/dashboard');
+                return res.redirect('/admin/products');
             } else {
                 // If normal user
                 res.redirect('/');
