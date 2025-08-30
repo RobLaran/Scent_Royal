@@ -62,10 +62,6 @@ module.exports = {
         try {
             const orders = await Order.getAllOrders();
 
-            console.log(orders);
-            console.log(orders[0].items);
-            
-
             res.render('pages/admin/Orders', { orders: orders, title: 'Orders' });
         } catch (err) {
             console.error('Error:', err);
