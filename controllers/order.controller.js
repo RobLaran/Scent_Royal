@@ -27,16 +27,18 @@ module.exports = {
                 orderId,
                 req.session?.user?.id || null
             );
-            const orderItems = order.items;
-
+            
             if (!userId) {
-                return res.status(404).render("pages/errors/404", {
-                    title: "Page not found",
-                    message: "You need to login",
+                return res.status(401).render("pages/errors/401", {
+                    title: "Forbidden",
+                    message: "You are unauthorized to access this page.",
                 });
             }
 
+            const orderItems = order.items;
+            
             if (!orderItems || orderItems.length === 0) {
+                
                 return res.status(404).render("pages/errors/404", {
                     title: "Page not found",
                     message: "No order items found",
