@@ -106,5 +106,12 @@ module.exports = {
             "DELETE FROM perfumes WHERE id = ?",
             [productId]
         );
+    },
+
+    async getNumberOfProducts() {
+        const query = "SELECT DISTINCT COUNT(id) as count FROM perfumes";
+        const params = [];
+        const [ row ] = await db.query(query, params);
+        return row[0].count;
     }
 };

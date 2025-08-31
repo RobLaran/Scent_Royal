@@ -44,4 +44,11 @@ module.exports = {
         const [user] = await db.query('SELECT * FROM users WHERE email = ? AND isAdmin = 1', [email]);
         return user[0];
     },
+
+    async getNumberOfUsers() {
+        const query = "SELECT DISTINCT COUNT(id) as count FROM users WHERE isAdmin = 0";
+        const params = [];
+        const [ row ] = await db.query(query, params);
+        return row[0].count;
+    }
 };

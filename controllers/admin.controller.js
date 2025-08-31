@@ -1,4 +1,4 @@
-const userModel = require('../models/user.model');
+const User = require('../models/user.model');
 const Product = require('../models/product.model');
 const Order = require('../models/order.model')
 
@@ -7,7 +7,7 @@ module.exports = {
         try {
             const { email, password } = req.body;
 
-            const user = await userModel.getAdminByEmail(email);
+            const user = await User.getAdminByEmail(email);
             
             if (!user) {
                 return res.status(401).render('pages/errors/401', { 
@@ -27,7 +27,7 @@ module.exports = {
 
             // If admin
             if (user.isAdmin) {
-                return res.redirect('/admin/products');
+                return res.redirect('/admin/dashboard');
             } else {
                 // If normal user
                 res.redirect('/');
@@ -108,6 +108,19 @@ module.exports = {
                 message: `Internal Server Error: Cannot remove product`,
                 success: false,
             });
+        }
+    },
+
+    async getDashboard(req, res) {
+        try {
+            const numberOfProducts = await Product.getNumberOfProducts();
+            const numberOfOrders = await Order.getNumberOfOrders();
+            const numberOfUsers = await User.getNumberOfUsers();
+
+            res.render('pages/admin/Dashboard', { data: { numberOfProducts, numberOfOrders, numberOfUsers }, title: 'Admin Dashboard' });
+        } catch (err) {
+            console.error('Error:', err);
+            res.status(500).send('Internal Server Error: Cannot Dashboard');
         }
     }
 };

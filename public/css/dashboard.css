@@ -1,0 +1,24 @@
+.admin-dashboard {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.admin-dashboard ul {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.admin-dashboard ul li {
+    flex: 0 1 200px;
+    display: grid;
+    text-align: center;
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.admin-dashboard ul li .data {
+    font-size: 1.4rem;
+    margin-top: 1rem;
+}

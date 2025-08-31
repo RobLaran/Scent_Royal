@@ -97,5 +97,12 @@ module.exports = {
             "DELETE FROM orders WHERE id = ? AND user_id = ?",
             [orderId, userId]
         );
+    },
+
+    async getNumberOfOrders() {
+        const query = "SELECT DISTINCT COUNT(id) as count FROM orders";
+        const params = [];
+        const [ row ] = await db.query(query, params);
+        return row[0].count;
     }
 };

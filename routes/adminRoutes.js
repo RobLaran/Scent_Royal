@@ -11,7 +11,9 @@ router.post('/login', adminController.loginAsAdmin);
 
 router.get('/logout', adminController.logoutAdmin);
 
-router.get('/add-product', (req, res) => {
+router.get('/dashboard', isAdminOnly, adminController.getDashboard);
+
+router.get('/add-product', isAdminOnly, (req, res) => {
     res.render('pages/admin/AddProduct', { title: 'Add Product' });
 });
 

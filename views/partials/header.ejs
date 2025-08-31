@@ -11,6 +11,10 @@
 
                 <% if(isAdmin && isLoggedIn) { %>
 
+                    <li class="nav-tab <%= currentPath === '/admin/dashboard' ? 'active' : '' %>">
+                        <a href="/admin/dashboard">Dashboard</a>
+                    </li>
+
                     <li class="nav-tab <%= currentPath === '/admin/products' ? 'active' : '' %>">
                         <a href="/admin/products">Product List</a>
                     </li>
